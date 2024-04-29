@@ -13,8 +13,6 @@ const NewTasks = () => {
     )
 }
 
-
-
 export const HeaderNav = () => {
     return(
         <nav className={styles.headerNav}>

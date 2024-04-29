@@ -8,7 +8,7 @@ export const Header = () => {
       <div className={styles.container}>
         <div className={styles.headerBlock}>
           <div
-            className={classNames(styles.headerLogo, styles.show, styles.light)}
+            className={classNames(styles.headerLogo, styles.show, styles.light)} // где этот стиль?//
           >
             <a href="" target="_self">
               <img src="images/logo.png" alt="logo" />

@@ -11,17 +11,17 @@ export const User = () => {
               Ivan Ivanov
             </a>
             <div
-              className={classNames(styles.headerPopUserSet, styles.popUserSet)}
+              className={classNames(styles.headerPopUserSet, styles.popUserSet)} //headerPopUserSet не нашла класс//
               id="user-set-target"
             >
               {/* <!-- <a href="">x</a> --> */}
               <p className={styles.popUserSetName}>Ivan Ivanov</p>
-              <p className={styles.popSserSetMail}>ivan.ivanov@gmail.com</p>
+              <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
               <div className={styles.popUserSetTheme}>
                 <p>Темная тема</p>
                 <input
                   type="checkbox"
-                  className={styles.checkbox}
+                  className={styles.checkbox} //нашла только type//
                   name="checkbox"
                 />
               </div>

@@ -15,5 +15,15 @@
     line-height: 1;
     text-transform: uppercase;
   }
+  .cards {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
 
+  .cards {
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+  }
   

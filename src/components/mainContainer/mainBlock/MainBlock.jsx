@@ -1,5 +1,5 @@
 import { statusList } from "../../../utils/cardItem";
-import { MainColumn } from "../mainColumn/MainColumn";
+import { MainColumn } from "../../mainContainer/mainColumn/MainColumn";
 import styles from "./MainBlock.module.css";
 
 export const MainBlock = () => {

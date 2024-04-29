@@ -1,12 +1,11 @@
 import "./App.css";
 import { PopExit } from "./components/popExit/PopExit";
 import { PopNewCard } from "./components/popNewCard/PopNewCard";
-import { MainConteiner } from "./components/mainConteiner/MainConteiner";
-import {PopBrowse} from "./components/popBrowse/PopBrowse";
-import {Header} from "./components/header/Header";
+import { PopBrowse } from "./components/popBrowse/PopBrowse";
+import { Header } from "./components/header/Header";
+import { MainContainer } from "./components/mainContainer/MainContainer";
 
 function App() {
-
   return (
     <>
       <div className="wrapper">
@@ -14,7 +13,7 @@ function App() {
         <PopNewCard />
         <PopBrowse />
         <Header />
-        <MainConteiner />
+        <MainContainer />
       </div>
     </>
   );

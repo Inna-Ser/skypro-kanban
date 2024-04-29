@@ -6,7 +6,7 @@ export const CardsItem = () => {
         <div className={styles.cardsItem}>
                 <div className={classNames(styles.cardsCard, styles.card)}>
                     <div className={styles.cardGroup}>
-                        <div className={classNames(styles.cardTheme, styles.range)}>
+                        <div className={classNames(styles.cardTheme, styles.orange)}>
                             <p className={styles.orange}>Web Design</p>
                         </div>
                         <a href="#popBrowse" target="_self">
