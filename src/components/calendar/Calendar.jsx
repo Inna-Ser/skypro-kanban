@@ -1,8 +1,8 @@
 import classNames from "classnames";
-import { CalendarContent } from "../../calendarContent/CalendarContent";
-import styles from "./PopNewCardCalendar.module.css";
+import { CalendarContent } from "../calendarContent/CalendarContent";
+import styles from "./Calendar.module.css";
 
-export const PopNewCardCalendar = () => {
+export const Calendar = () => {
   return (
     <div className={classNames(styles.popNewCardCalendar, styles.calendar)}>
       <p className={classNames(styles.calendarTtl, styles.subttl)}>Даты</p>

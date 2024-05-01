@@ -1,9 +1,10 @@
 import { weekDays } from "../../../utils/weekDays";
 import styles from "./WeekDays.module.css";
 
-const WeekDay = ({ name }) => {
-  return <div className={styles.calendarDayName}>{name}</div>;
+const WeekDay = ({title }) => {
+  return <div className={styles.calendarDayName}>{title}</div>;
 };
+
 export const WeekDays = () => {
   return (
     <>

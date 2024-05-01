@@ -1,10 +1,10 @@
 import { statusList } from "../../utils/cardItem";
 import { BrowseForm } from "./browseForm/BrowseForm";
 import { BrowseTopBlock } from "./browseTopBlock/BrowseTopBlock";
-import { PopNewCardCalendar } from "./popNewCardCalendar/PopNewCardCalendar";
 import { StatusTheme } from "./stutusTheme/StatusTheme";
 import styles from "./PopBrowse.module.css";
 import classNames from "classnames";
+import { Calendar } from "../calendar/Calendar";
 
 const ThemeDownCategories = () => {
   return (
@@ -109,13 +109,15 @@ const BrowseEdit = () => {
 
 export const PopBrowse = () => {
   return (
-    <div className={styles.popBrowse} id="popBrowse">
+    <div className="pop-browse" id="popBrowse">
       <div className={styles.popBrowseContainer}>
         <div className={styles.popBrowseBlock}>
           <div className={styles.popBrowseContent}>
             <BrowseTopBlock />
             <div className={classNames(styles.popBrowseStatus, styles.status)}>
-              <p className={classNames(styles.statusP, styles.subttl)}>Статус</p>
+              <p className={classNames(styles.statusP, styles.subttl)}>
+                Статус
+              </p>
               <div className={styles.statusThemes}>
                 {statusList.map((status) => (
                   <StatusTheme key={status} title={status} />
@@ -136,7 +138,7 @@ export const PopBrowse = () => {
             </div>
             <div className={styles.popBrowseWrap}>
               <BrowseForm />
-              <PopNewCardCalendar />
+              <Calendar />
             </div>
             <ThemeDownCategories />
             <Browse />

@@ -1,24 +1,30 @@
-.hover02:hover, .headerUser:hover {
-    color: #33399b;
-  }
-  .hover02:hover::after, .headerUser:hover::after {
-    border-left-color: #33399b;
-    border-bottom-color: #33399b;
-  }
-
-  .popUserSet:target {
+.popUserSet:target {
   display: block;
 }
-
+.popUserSet {
+  display: block;
+  position: absolute;
+  top: 61px;
+  right: 0;
+  width: 213px;
+  height: 205px;
+  border-radius: 10px;
+  border: 0.7px solid rgba(148, 166, 190, 0.4);
+  background: #FFF;
+  box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
+  padding: 34px;
+  text-align: center;
+  z-index: 2;
+}
 .popUserSetName {
-    color: #000;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: -0.14px;
-    margin-bottom: 4px;
-  }
-  .popUserSetMail {
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.14px;
+  margin-bottom: 4px;
+}
+.popUserSetMail {
     color: #94A6BE;
     font-size: 14px;
     line-height: 21px;
@@ -33,7 +39,7 @@
     margin-bottom: 30px;
   }
 
-  .pop-user-set__theme input[type=checkbox] {
+  .popUserSetTheme input[type=checkbox] {
     position: relative;
     width: 24px;
     height: 13px;
@@ -44,7 +50,7 @@
        -moz-appearance: none;
             appearance: none;
   }
-  .pop-user-set__theme input[type=checkbox]::before {
+  .popUserSetTheme input[type=checkbox]::before {
     content: "";
     position: absolute;
     top: 1px;
@@ -55,14 +61,29 @@
     background-color: #94A6BE;
     transition: 0.5s;
   }
-  .pop-user-set__theme input:checked[type=checkbox]::before {
+  .popUserSetTheme input:checked[type=checkbox]::before {
     left: 12px;
   }
+  .headerUser {
+    height: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+    background-color: transparent;
+    border: none;
+  }
+  .setUserButton {
+    background-color: transparent;
+    width: 72px;
+    height: 30px;
+    border: 1px;
+    color: 
+    #565EEF;
+    border-radius: 4px;
+  }
 
-  .hover03:hover {
-    background-color: #33399b;
-    color: #FFFFFF;
-  }
-  .hover03:hover a {
-    color: #FFFFFF;
-  }
+  

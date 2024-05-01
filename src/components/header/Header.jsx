@@ -2,7 +2,7 @@ import styles from "./Header.module.css";
 import classNames from "classnames";
 import { HeaderNav } from "./headerNav/HeaderNav";
 
-export const Header = () => {
+export const Header = ({onCardAdd}) => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -19,7 +19,7 @@ export const Header = () => {
               <img src="images/logo_dark.png" alt="logo" />
             </a>
           </div>
-          <HeaderNav />
+          <HeaderNav onCardAdd={onCardAdd}/>
         </div>
       </div>
     </header>

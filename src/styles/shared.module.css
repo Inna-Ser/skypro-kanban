@@ -1,0 +1,14 @@
+.hover03:hover {
+    background-color: #33399b;
+    color: #FFFFFF;
+  }
+  .hover03:hover a {
+    color: #FFFFFF;
+  }
+  .hover02:hover, .headerUser:hover {
+    color: #33399b;
+  }
+  .hover02:hover::after, .headerUser:hover::after {
+    border-left-color: #33399b;
+    border-bottom-color: #33399b;
+  }
