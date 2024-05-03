@@ -11,8 +11,8 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
-  const login = ({ value }) => {
-    setUser(value);
+  const login = ({ data }) => {
+    setUser(data);
     navigate("/");
   };
   const logout = () => {
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
   return (
-    <UserContext.Provider vaiue={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,11 +1,13 @@
 // import { useState } from "react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { statusList } from "../../../utils/cardItem";
 import { MainColumn } from "../../mainContainer/mainColumn/MainColumn";
 import styles from "./MainBlock.module.css";
+import { TaskContext } from "../../../context/TaskProvider";
 
-export const MainBlock = ({ cards }) => {
+export const MainBlock = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { cards } = useContext(TaskContext);
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,7 +24,11 @@ export const MainBlock = ({ cards }) => {
             <MainColumn
               key={status}
               title={status}
-              cardList={cards.filter((card) => card.status === status)}
+              cardList={
+                Array.isArray(cards)
+                  ? cards.filter((card) => card.status === status)
+                  : []
+              }
             />
           ))
         )}

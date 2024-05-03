@@ -8,14 +8,12 @@ function App() {
     <>
       <div className="wrapper">
         <AuthProvider>
-          <TaskProvider>
             {/* <PopExit />
         <PopNewCard />
         <PopBrowse />
         <Header onCardAdd={onCardAdd} />
         <MainContainer cards={cards} /> */}
             <AppRoutes />
-          </TaskProvider>
         </AuthProvider>
       </div>
     </>

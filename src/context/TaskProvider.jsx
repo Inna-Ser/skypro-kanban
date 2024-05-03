@@ -1,10 +1,26 @@
-import React, { useState } from "react";
-import { cardList } from "../utils/data";
+import React, { useContext, useEffect, useState } from "react";
+import { getTask } from "../api/api";
+import { UserContext } from "./AuthUserProvider";
 
 export const TaskContext = React.createContext(null);
 
 export const TaskProvider = ({ children }) => {
-  const [cards, setCards] = useState(cardList);
+  const [cards, setCards] = useState([]);
+  const { user } = useContext(UserContext);
+  useEffect(() => {
+    getTask({token: user?.user.token})
+      .then((data) => {
+        setCards(data);
+      })
+      .catch((error) => {
+        if (error.message === "Failed to fetch") {
+          console.log("Не удалось загрузить треки");
+          return;
+        }
+        console.log(error.message);
+      });
+  }, []);
+
   const onCardAdd = () => {
     const newCard = {
       id: cards.length + 1, // Генерируем уникальный id для новой карточки
