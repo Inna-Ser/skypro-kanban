@@ -12,8 +12,7 @@ const NewTasks = () => {
       id="btnMainNew"
       onClick={onCardAdd}
     >
-      {/* <a href="#popNewCard">Создать новую задачу</a> */}
-      Создать новую задачу
+      <a href="#popNewCard">Создать новую задачу</a>
     </button>
   );
 };

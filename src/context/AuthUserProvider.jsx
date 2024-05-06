@@ -5,12 +5,17 @@ export const UserContext = createContext({
   user: true,
   login: () => {},
   logout: () => {},
+  registr: () => {},
 });
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-
   const [user, setUser] = useState(null);
+
+  const registr = ({data}) => {
+setUser(data);
+navigate("/registr")
+  }
   const login = ({ data }) => {
     setUser(data);
     navigate("/");
@@ -20,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, login, logout, registr }}>
       {children}
     </UserContext.Provider>
   );

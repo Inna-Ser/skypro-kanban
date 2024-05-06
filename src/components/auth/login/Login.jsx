@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/AuthUserProvider";
-import { signin } from "../../api/api";
+import { UserContext } from "../../../context/AuthUserProvider";
+import { signin } from "../../../api/api";
 
 export const Login = () => {
   const [error, setError] = useState(null);

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { NotFound } from ".";
-import { Register } from "./components/register/Register";
-import { Login } from "./components/login/Login";
+import { Register } from "./components/auth/register/Register";
+import { Login } from "./components/auth/login/Login";
 import { ProtectRoute } from "./components/protectedRoute/ProtectedRoute";
 import { MainPage } from "./pages/MainPage";
 

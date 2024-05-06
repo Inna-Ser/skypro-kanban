@@ -1,7 +1,6 @@
 import "./App.css";
 import { AppRoutes } from "./Routes";
 import { AuthProvider } from "./context/AuthUserProvider";
-import { TaskProvider } from "./context/TaskProvider";
 
 function App() {
   return (

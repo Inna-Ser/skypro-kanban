@@ -1,6 +1,7 @@
 .main {
     width: 100%;
     background-color: #EAEEF6;
+    overflow: auto;
   }
   .container {
     max-width: 1260px;
