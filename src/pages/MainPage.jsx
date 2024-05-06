@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import { Header } from "../components/header/Header";
 import { MainContainer } from "../components/mainContainer/MainContainer";
 import { TaskProvider } from "../context/TaskProvider";
@@ -7,6 +8,7 @@ export const MainPage = () => {
     <TaskProvider>
       <Header />
       <MainContainer />
+      <Outlet />
     </TaskProvider>
   );
 };

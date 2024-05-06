@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { registration } from "../../../api/api";
 import { UserContext } from "../../../context/AuthUserProvider";
 import styles from "./Register.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [error, setError] = useState(null);
@@ -12,6 +12,7 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   //   const [autocompleteOff, setAutocompleteOff] = useState(false);
   const { registr } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,18 +30,25 @@ export const Register = () => {
     setIsSubmitting(true);
     if (!email) {
       setError("Не заполнено 'Почта'");
+      setIsSubmitting(false);
       return;
     }
     if (!name) {
       setError("Не заполнено 'Имя'");
+      setIsSubmitting(false);
+      return;
     }
     if (!password) {
       setError("Не заполнено 'Пароль'");
+      setIsSubmitting(false);
       return;
     }
-    registration({ login: email, name, password }).then((data) => {
-      registr({ data });
-    });
+    registration({ login: email, name, password })
+      .then((data) => {
+        registr({ data });
+        navigate("/login");
+      })
+      .finally(() => setIsSubmitting(false));
   };
   // Здесь обычно будет вызов API для входа, но мы его имитируем
   // Предположим, что вход прошел успешно и мы устанавливаем пользователя в контекст
@@ -91,10 +99,10 @@ export const Register = () => {
           >
             {isSubmitting ? "Регистрация..." : "Зарегистрироваться"}
           </button>
-          <div>
-            Уже есть аккаунт?
+          <div className={styles.linkRegistr}>
+            Уже есть аккаунт?{" "}
             <Link className={styles.loginLink} to={"/login"}>
-              Войдите Здесь
+              Войдите &nbsp;здесь
             </Link>
           </div>
         </form>

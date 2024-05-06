@@ -3,45 +3,31 @@ import styles from "./User.module.css";
 import shared from "../../../styles/shared.module.css";
 import { useEffect } from "react";
 import { useState } from "react";
-import { PopExit } from "../../popExit/PopExit";
+import { Link } from "react-router-dom";
 
 const UserSet = () => {
-  const [isExit, setIsExit] = useState(null);
-
-  useEffect(() => {
-    setIsExit(false);
-    return () => {
-      setIsExit(true);
-    };
-  }, []);
-
-  const toggleExit = () => setIsExit(!isExit);
   return (
-    <>
-      {isExit && <PopExit />} {""}
-      <div
-        className={classNames(styles.headerPopUserSet, styles.popUserSet)} //headerPopUserSet не нашла класс//
-        id="user-set-target"
-      >
-        <p className={styles.popUserSetName}>Ivan Ivanov</p>
-        <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
-        <div className={styles.popUserSetTheme}>
-          <p>Темная тема</p>
-          <input
-            type="checkbox"
-            className={styles.checkbox} //нашла только type//
-            name="checkbox"
-          />
-        </div>
-        <button
-          type="button"
-          className={classNames(styles.setUserButton, shared.hover03)}
-          onClick={toggleExit}
-        >
-          Выйти
-        </button>
+    <div
+      className={classNames(styles.headerPopUserSet, styles.popUserSet)} //headerPopUserSet не нашла класс//
+      id="user-set-target"
+    >
+      <p className={styles.popUserSetName}>Ivan Ivanov</p>
+      <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
+      <div className={styles.popUserSetTheme}>
+        <p>Темная тема</p>
+        <input
+          type="checkbox"
+          className={styles.checkbox} //нашла только type//
+          name="checkbox"
+        />
       </div>
-    </>
+      <button
+        type="button"
+        className={classNames(styles.setUserButton, shared.hover03)}
+      >
+        <Link to="/exit">Выйти</Link>
+      </button>
+    </div>
   );
 };
 

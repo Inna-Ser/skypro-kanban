@@ -32,10 +32,8 @@ export const Login = () => {
       setError("Не заполнено 'Пароль'");
       return;
     }
-    signin({ login: email, password })
-    .then((data) => {
-        login({ data });
-
+    signin({ login: email, password }).then((data) => {
+      login({ data });
     });
     // Здесь обычно будет вызов API для входа, но мы его имитируем
     // Предположим, что вход прошел успешно и мы устанавливаем пользователя в контекст

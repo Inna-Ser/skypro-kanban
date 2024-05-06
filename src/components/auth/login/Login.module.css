@@ -7,7 +7,7 @@
  top: 50%;
  left: 50%;
  border-radius :10px;
- border: 1px solid #565EEF;
+ /* border: 1px solid #565EEF; */
  padding-top: 50px;
  padding-left: 60px;
  padding-bottom: 50px;
@@ -51,7 +51,8 @@
     border: 0.7px solid #94A6BE 40%;
     background-color: white !important;
     padding: 
-    8px, 10px, 8px, 10px;
+    8px 10px;
+    color: black;
 }
 .loginButton {
 width: 100%;
@@ -62,6 +63,5 @@ background-color:
 }
 .loginLink {
     color: 
-    #94A6BE
-    40%;
+    #94A6BE;
 }

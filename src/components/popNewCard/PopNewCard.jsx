@@ -1,6 +1,13 @@
+import { useState } from "react";
 import { Calendar } from "../calendar/Calendar";
 
 export const PopNewCard = () => {
+  const [taskData, setTaskData] = useState({
+    title: "",
+    topic: "",
+    description: "",
+    date: "",
+  });
   return (
     <div className="pop-new-card" id="popNewCard">
       <div className="pop-new-card__container">
@@ -23,10 +30,10 @@ export const PopNewCard = () => {
                   <input
                     className="form-new__input"
                     type="text"
-                    name="name"
+                    name="title"
                     id="formTitle"
                     placeholder="Введите название задачи..."
-                    autoFocus
+                    value={taskData.title}
                   />
                 </div>
                 <div className="form-new__block">
@@ -38,6 +45,7 @@ export const PopNewCard = () => {
                     name="text"
                     id="textArea"
                     placeholder="Введите описание задачи..."
+                    value={taskData.description}
                   ></textarea>
                 </div>
               </form>
@@ -47,13 +55,22 @@ export const PopNewCard = () => {
               <p className="categories__p subttl">Категория</p>
               <div className="categories__themes">
                 <div className="categories__theme _orange _active-category">
-                  <p className="_orange">Web Design</p>
+                  <label className="_orange">
+                    Web Design
+                    <input type="radio" value="Web Design" />
+                  </label>
                 </div>
                 <div className="categories__theme _green">
-                  <p className="_green">Research</p>
+                  <label className="_green">
+                    Research
+                    <input type="radio" value="Research" />
+                  </label>
                 </div>
                 <div className="categories__theme _purple">
-                  <p className="_purple">Copywriting</p>
+                  <label className="_purple">
+                    Copywriting
+                    <input type="radio" value="Copywriting" />
+                  </label>
                 </div>
               </div>
             </div>

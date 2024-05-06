@@ -4,6 +4,8 @@ import { Register } from "./components/auth/register/Register";
 import { Login } from "./components/auth/login/Login";
 import { ProtectRoute } from "./components/protectedRoute/ProtectedRoute";
 import { MainPage } from "./pages/MainPage";
+import { PopExit } from "./components/popExit/PopExit";
+import { PopNewCard } from "./components/popNewCard/PopNewCard";
 
 export const AppRoutes = () => {
   return (
@@ -13,8 +15,8 @@ export const AppRoutes = () => {
       <Route path="*" element={<NotFound />} />
       <Route element={<ProtectRoute />}>
         <Route path="/" element={<MainPage />}>
-          <Route />
-          <Route />
+          <Route path="/exit" element={<PopExit />} />
+          <Route path="/add-task" element={<PopNewCard />}/>
         </Route>
       </Route>
     </Routes>

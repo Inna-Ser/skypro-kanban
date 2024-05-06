@@ -50,8 +50,9 @@
     border-radius: 8px;
     border: 0.7px solid #94A6BE 40%;
     background-color: white !important;
+    color: black;
     padding: 
-    8px, 10px, 8px, 10px;
+    8px 10px;
 }
 .loginButton {
 width: 100%;
@@ -59,9 +60,13 @@ height: 30px;
 border-radius: 4px;
 background-color: 
 #565EEF;
+font-size: 14px;
 }
 .loginLink {
     color: 
     #94A6BE
     40%;
+}
+.linkRegistr {
+   
 }

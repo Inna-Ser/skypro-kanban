@@ -3,6 +3,7 @@ import styles from "./HeaderNav.module.css";
 import { User } from "../user/User";
 import { useContext } from "react";
 import { TaskContext } from "../../../context/TaskProvider";
+import { Link } from "react-router-dom";
 
 const NewTasks = () => {
   const { onCardAdd } = useContext(TaskContext);
@@ -12,7 +13,7 @@ const NewTasks = () => {
       id="btnMainNew"
       onClick={onCardAdd}
     >
-      <a href="#popNewCard">Создать новую задачу</a>
+      <Link to="/add-task">Создать новую задачу</Link>
     </button>
   );
 };
