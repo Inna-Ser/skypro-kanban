@@ -8,6 +8,10 @@ export const PopNewCard = () => {
     description: "",
     date: "",
   });
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setTaskData({ ...taskData, [name]: value });
+  };
   return (
     <div className="pop-new-card" id="popNewCard">
       <div className="pop-new-card__container">
@@ -34,6 +38,7 @@ export const PopNewCard = () => {
                     id="formTitle"
                     placeholder="Введите название задачи..."
                     value={taskData.title}
+                    onChange={onChange}
                   />
                 </div>
                 <div className="form-new__block">
@@ -42,10 +47,11 @@ export const PopNewCard = () => {
                   </label>
                   <textarea
                     className="form-new__area"
-                    name="text"
+                    name="description"
                     id="textArea"
                     placeholder="Введите описание задачи..."
                     value={taskData.description}
+                    onChange={onChange}
                   ></textarea>
                 </div>
               </form>
@@ -57,19 +63,37 @@ export const PopNewCard = () => {
                 <div className="categories__theme _orange _active-category">
                   <label className="_orange">
                     Web Design
-                    <input type="radio" value="Web Design" />
+                    <input
+                      name="topic"
+                      type="radio"
+                      value="Web Design"
+                      checked={taskData.topic === "Web Design"}
+                      onChange={onChange}
+                    />
                   </label>
                 </div>
                 <div className="categories__theme _green">
                   <label className="_green">
                     Research
-                    <input type="radio" value="Research" />
+                    <input
+                      name="topic"
+                      type="radio"
+                      value="Research"
+                      checked={taskData.topic === "Research"}
+                      onChange={onChange}
+                    />
                   </label>
                 </div>
                 <div className="categories__theme _purple">
                   <label className="_purple">
                     Copywriting
-                    <input type="radio" value="Copywriting" />
+                    <input
+                      name="topic"
+                      type="radio"
+                      value="Copywriting"
+                      checked={taskData.topic === "Copywriting"}
+                      onChange={onChange}
+                    />
                   </label>
                 </div>
               </div>
