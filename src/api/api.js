@@ -122,3 +122,36 @@ export const deleteTask = async ({
         throw error;
     }
 }
+
+export const editTask = async ({
+    id,
+    title,
+    topic,
+    status,
+    description,
+    date,
+    token
+}) => {
+    try {
+        const response = await fetch(`baseURL + ${id}`, {
+            method: "POST",
+            headers: {
+                authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                title,
+                topic,
+                status,
+                description,
+                date
+            })
+        });
+        if (!response.ok) {
+            throw new Error("Ошибка при редактировании задачи:" + response.status);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Ошибка при редактировании задачи:", error.message);
+        throw error;
+    }
+}

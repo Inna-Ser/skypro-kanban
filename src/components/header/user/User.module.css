@@ -84,5 +84,12 @@
     color: #565EEF;
     border-radius: 4px;
   }
+  .userSetClose {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #94A6BE;
+    cursor: pointer;
+  }
 
   

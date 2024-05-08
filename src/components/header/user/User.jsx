@@ -7,27 +7,32 @@ import { Link } from "react-router-dom";
 
 const UserSet = () => {
   return (
-    <div
-      className={classNames(styles.headerPopUserSet, styles.popUserSet)} //headerPopUserSet не нашла класс//
-      id="user-set-target"
-    >
-      <p className={styles.popUserSetName}>Ivan Ivanov</p>
-      <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
-      <div className={styles.popUserSetTheme}>
-        <p>Темная тема</p>
-        <input
-          type="checkbox"
-          className={styles.checkbox} //нашла только type//
-          name="checkbox"
-        />
-      </div>
-      <button
-        type="button"
-        className={classNames(styles.setUserButton, shared.hover03)}
+    <>
+      <div
+        className={classNames(styles.headerPopUserSet, styles.popUserSet)} //headerPopUserSet не нашла класс//
+        id="user-set-target"
       >
-        <Link to="/exit">Выйти</Link>
-      </button>
-    </div>
+        <p className={styles.popUserSetName}>Ivan Ivanov</p>
+        <div className={styles.userSetClose}>
+          <Link to="/">&#10006;</Link>
+        </div>
+        <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
+        <div className={styles.popUserSetTheme}>
+          <p>Темная тема</p>
+          <input
+            type="checkbox"
+            className={styles.checkbox} //нашла только type//
+            name="checkbox"
+          />
+        </div>
+        <button
+          type="button"
+          className={classNames(styles.setUserButton, shared.hover03)}
+        >
+          <Link to="/exit">Выйти</Link>
+        </button>
+      </div>
+    </>
   );
 };
 

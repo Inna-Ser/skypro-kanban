@@ -1,15 +1,15 @@
 import { useContext, useState } from "react";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../../context/AuthUserProvider";
 import { signin } from "../../../api/api";
+import classNames from "classnames";
+import { UserContext } from "../../protectedRoute/context/AuthUserProvider";
 
 export const Login = () => {
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //   const [autocompleteOff, setAutocompleteOff] = useState(false);
   const { login } = useContext(UserContext);
 
   const handleInputChange = (e) => {
@@ -26,26 +26,26 @@ export const Login = () => {
     setIsSubmitting(true);
     if (!email) {
       setError("Не заполнено 'Почта'");
+      setIsSubmitting(false);
       return;
     }
     if (!password) {
       setError("Не заполнено 'Пароль'");
+      setIsSubmitting(false);
       return;
     }
-    signin({ login: email, password }).then((data) => {
-      login({ data });
-    });
-    // Здесь обычно будет вызов API для входа, но мы его имитируем
-    // Предположим, что вход прошел успешно и мы устанавливаем пользователя в контекст
-
-    // Перенаправляем пользователя на главную страницу
+    signin({ login: email, password })
+      .then((data) => {
+        login({ data });
+      })
+      .finally(() => setIsSubmitting(false));
   };
   return (
     <div className={styles.login}>
       <div className={styles.loginBlock}>
         <form type={"submit"} className={styles.loginForm}>
           <div className={styles.inter}>
-            <h1>Вход</h1>
+            <h1 className={styles.loginTitle}>Вход</h1>
           </div>
           <div className={styles.loginBoxInput}>
             <input
@@ -76,9 +76,12 @@ export const Login = () => {
           >
             {isSubmitting ? "Вход..." : "Войти"}
           </button>
-          <div>
-            Нужно Зарегистрироваться?
-            <Link className={styles.loginLink} to={"/registr"}>
+          <div className={styles.loginLink}>
+            Нужно зарегистрироваться?
+            <Link
+              className={classNames(styles.loginLink, styles.underLine)}
+              to={"/registr"}
+            >
               Зарегистрироваться
             </Link>
           </div>

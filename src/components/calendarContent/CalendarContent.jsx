@@ -1,12 +1,13 @@
-import { WeekDays } from "./weekDays/WeekDays";
 import styles from "./CalendarContent.module.css";
-import { CalendarCells } from "./calendarCells/CalendarCells";
+import { DayPicker } from "react-day-picker";
 
 export const CalendarContent = () => {
   return (
-    <div className={styles.calendarContent}>
-      <WeekDays />
-      <CalendarCells />
-    </div>
+    <>
+      <div className={styles.calendarContent}>
+        <p className={styles.calendarTitle}>Даты</p>
+        <DayPicker />
+      </div>
+    </>
   );
 };

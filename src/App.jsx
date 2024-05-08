@@ -1,18 +1,17 @@
 import "./App.css";
 import { AppRoutes } from "./Routes";
-import { AuthProvider } from "./context/AuthUserProvider";
-
+import { AuthProvider } from "./components/protectedRoute/context/AuthUserProvider";
 function App() {
   return (
     <>
       <div className="wrapper">
         <AuthProvider>
-            {/* <PopExit />
+          {/* <PopExit />
         <PopNewCard />
         <PopBrowse />
         <Header onCardAdd={onCardAdd} />
         <MainContainer cards={cards} /> */}
-            <AppRoutes />
+          <AppRoutes />
         </AuthProvider>
       </div>
     </>

@@ -1,5 +1,12 @@
 .calendarContent {
-    margin-bottom: 12px;
+    margin-bottom: 37px;
+  }
+  .calendarTitle {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 20px;
   }
 
   

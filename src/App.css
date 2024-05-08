@@ -859,7 +859,7 @@ body {
     max-width: 340px;
     width: 100%;
   }
-  .calendar__ttl, .calendar__nav, .calendar__period {
+  .calendar__ttl, .calendar__nav, .ar__period {
     padding: 0;
   }
   .calendar .date-create {

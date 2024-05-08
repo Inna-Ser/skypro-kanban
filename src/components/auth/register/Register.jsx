@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { registration } from "../../../api/api";
-import { UserContext } from "../../../context/AuthUserProvider";
+import { UserContext } from "../../protectedRoute/context/AuthUserProvider";
 import styles from "./Register.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import classNames from "classnames";
 
 export const Register = () => {
   const [error, setError] = useState(null);
@@ -59,7 +60,7 @@ export const Register = () => {
       <div className={styles.loginBlock}>
         <form type={"submit"} className={styles.loginForm}>
           <div className={styles.inter}>
-            <h1>Регистрация</h1>
+            <h1 className={styles.registrTitle}>Регистрация</h1>
           </div>
           <div className={styles.loginBoxInput}>
             <input
@@ -101,8 +102,11 @@ export const Register = () => {
           </button>
           <div className={styles.linkRegistr}>
             Уже есть аккаунт?{" "}
-            <Link className={styles.loginLink} to={"/login"}>
-              Войдите &nbsp;здесь
+            <Link
+              className={classNames(styles.loginLink, styles.underLine)}
+              to={"/login"}
+            >
+              Войдите здесь
             </Link>
           </div>
         </form>

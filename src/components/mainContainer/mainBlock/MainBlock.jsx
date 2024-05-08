@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { statusList } from "../../../utils/cardItem";
 import { MainColumn } from "../../mainContainer/mainColumn/MainColumn";
 import styles from "./MainBlock.module.css";
-import { TaskContext } from "../../../context/TaskProvider";
+import { TaskContext } from "../../protectedRoute/context/TaskProvider";
 
 export const MainBlock = () => {
   const [isLoading, setIsLoading] = useState(true);

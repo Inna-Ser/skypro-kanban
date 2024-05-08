@@ -17,6 +17,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 4px 67px -12px #00000021;
+
 }
 
 /* .loginBlock {
@@ -31,10 +33,13 @@
 .inter {
     font-size: 10px;
 }
+.loginTitle {
+    font-size: 20px;
+}
 .loginForm {
     display: flex;
     flex-direction: column;
-    /* width: 248px; */
+    width: 248px;
     row-gap: 20px;
     align-items: center;
 }
@@ -48,7 +53,7 @@
     width: 100%;
     height: 30px;
     border-radius: 8px;
-    border: 0.7px solid #94A6BE 40%;
+    border: 0.7px solid #94A6BE;
     background-color: white !important;
     padding: 
     8px 10px;
@@ -64,4 +69,10 @@ background-color:
 .loginLink {
     color: 
     #94A6BE;
+}
+.registrError {
+    color: red;
+}
+.underLine {
+    text-decoration: underline;
 }

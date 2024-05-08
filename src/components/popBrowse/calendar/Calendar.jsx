@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { CalendarContent } from "../calendarContent/CalendarContent";
 import styles from "./PopNewCardCalendar.module.css";
 
 export const Calendar = () => {
@@ -32,7 +31,6 @@ export const Calendar = () => {
             </div>
           </div>
         </div>
-        <CalendarContent />
 
         <input type="hidden" id="datepick_value" value="08.09.2023" />
         <div className={styles.calendarPeriod}>

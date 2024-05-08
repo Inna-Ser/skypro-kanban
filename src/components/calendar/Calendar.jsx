@@ -3,12 +3,13 @@ import { CalendarContent } from "../calendarContent/CalendarContent";
 import styles from "./Calendar.module.css";
 
 export const Calendar = () => {
+
   return (
     <div className={classNames(styles.popNewCardCalendar, styles.calendar)}>
       <p className={classNames(styles.calendarTtl, styles.subttl)}>Даты</p>
       <div className={styles.calendarBlock}>
         <div className={styles.calendarNav}>
-          <div className={styles.calendarMonth}>Сентябрь 2023</div>
+          {/* <div className={styles.calendarMonth}>Сентябрь 2023</div> */}
           <div className={styles.navActions}>
             <div className={styles.navAction} data-action="prev">
               <svg
