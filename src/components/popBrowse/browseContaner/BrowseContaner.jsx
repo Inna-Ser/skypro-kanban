@@ -4,10 +4,11 @@ import { BrowseTopBlock } from "../browseTopBlock/BrowseTopBlock";
 import { StatusTheme } from "../stutusTheme/StatusTheme";
 import styles from "./BrowseContaner.module.css";
 import { CloseButton, DeleteButton, EditButton } from "../../buttons/Buttons";
-import { CalendarContent } from "../../calendarContent/CalendarContent";
+import { Calendar } from "../../calendar/Calendar";
+import { useParams } from "react-router-dom";
 
 export const BrowseContaner = () => {
-
+const {id} = useParams();
   return (
     <div className="pop-browse" id="popBrowse">
       <div className={styles.popBrowseContainer}>
@@ -66,12 +67,12 @@ export const BrowseContaner = () => {
                   </div>
                 </form>
               </form>
-              <CalendarContent />
+              <Calendar />
             </div>
             <div className={styles.popBrowseBtnBrowse}>
               <div className={styles.btnGroup}>
                 <EditButton />
-                <DeleteButton />
+                <DeleteButton id={id}/>
                 <CloseButton />
               </div>
             </div>

@@ -3,7 +3,7 @@ import styles from "./CardsItem.module.css";
 import classNames from "classnames";
 import { ThemeCategories } from "../popBrowse/themeCategories/ThemeCategories";
 
-export const CardsItem = () => {
+export const CardsItem = ({ _id, title, topic, status, description, date }) => {
   return (
     <div className={styles.cardsItem}>
       <div className={classNames(styles.cardsCard, styles.card)}>
@@ -12,7 +12,7 @@ export const CardsItem = () => {
           {/* <div className={classNames(styles.cardTheme, styles.orange)}>
             <p className={styles.orange}>Web Design</p>
           </div> */}
-          <Link to="/browse" target="_self">
+          <Link to={`/browse/${_id}`} target="_self">
             <div className={styles.cardBtn}>
               <div></div>
               <div></div>
@@ -22,7 +22,7 @@ export const CardsItem = () => {
         </div>
         <div className={styles.cardContent}>
           <a href="" target="_blank">
-            <h3 className={styles.cardTitle}>Название задачи</h3>
+            <h3 className={styles.cardTitle}>{title}</h3>
           </a>
           <div className={styles.cardDate}>
             <svg
@@ -53,7 +53,7 @@ export const CardsItem = () => {
                 </clipPath>
               </defs>
             </svg>
-            <p>30.10.23</p>
+            <p>{date}</p>
           </div>
         </div>
       </div>

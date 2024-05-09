@@ -5,7 +5,6 @@ import styles from "./PopNewCard.module.css";
 import { addTask } from "../../api/api";
 import { Link } from "react-router-dom";
 import { TaskContext } from "../protectedRoute/context/TaskProvider";
-import { CalendarContent } from "../calendarContent/CalendarContent";
 
 export const PopNewCard = () => {
   const [taskData, setTaskData] = useState({
@@ -18,14 +17,14 @@ export const PopNewCard = () => {
   const [error, setError] = useState(null);
   // const [title, setTitle] = useState("");
   // const [description, setDiscription] = useState("");
-  const { onCardAdd } = useContext(TaskContext);
+  const { onCardAdd: addCard } = useContext(TaskContext);
 
   const onChange = (e) => {
     const { name, value } = e.target;
     setTaskData({ ...taskData, [name]: value });
   };
 
-  const addNewTask = async (event) => {
+  const handleCardAdd = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
     if (!taskData.title) {
@@ -38,13 +37,14 @@ export const PopNewCard = () => {
       setIsSubmitting(false);
       return;
     }
-    addTask({
-      taskData,
-    })
-      .then((data) => {
-        onCardAdd({ data });
-      })
-      .finally(() => setIsSubmitting(false));
+    try {
+      const data = await addTask(taskData);
+      addCard(data);
+    } catch (error) {
+      console.error("Ошибка при добавлении задачи:", error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <div className={styles.popNewCard} id="popNewCard">
@@ -99,7 +99,7 @@ export const PopNewCard = () => {
                   </div>
                 </form>
               </form>
-              <CalendarContent />
+              <Calendar />
             </div>
             <div
               className={classNames(
@@ -162,7 +162,7 @@ export const PopNewCard = () => {
             <button
               className={classNames(styles.formNewCreate, styles.hover01)}
               id="btnCreate"
-              onClick={addNewTask}
+              onClick={handleCardAdd}
             >
               Создать задачу
             </button>

@@ -22,14 +22,7 @@ export const TaskProvider = ({ children }) => {
       });
   }, []);
 
-  const onCardAdd = async ({
-    title,
-    topic,
-    status,
-    description,
-    date,
-    token,
-  }) => {
+  const onCardAdd = async ({ title, topic, status, description, date }) => {
     try {
       const newTask = await addTask({
         title,
@@ -37,7 +30,7 @@ export const TaskProvider = ({ children }) => {
         status,
         description,
         date,
-        token,
+        token: user?.user.token,
       });
       setCards((prevCards) => [...prevCards, newTask]);
     } catch (error) {
@@ -47,8 +40,8 @@ export const TaskProvider = ({ children }) => {
 
   const onDeleteTask = async (id) => {
     try {
-      await deleteTask({ id, token: user?.user.token });
-      setCards((prevCards) => prevCards.filter((card) => card.id !== id));
+      const resalte = await deleteTask({ id, token: user?.user.token });
+      setCards(resalte.tasks);
     } catch (error) {
       console.error("Ошибка при удалении задачи:", error.message);
     }

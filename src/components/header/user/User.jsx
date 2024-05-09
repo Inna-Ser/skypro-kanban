@@ -13,9 +13,6 @@ const UserSet = () => {
         id="user-set-target"
       >
         <p className={styles.popUserSetName}>Ivan Ivanov</p>
-        <div className={styles.userSetClose}>
-          <Link to="/">&#10006;</Link>
-        </div>
         <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
         <div className={styles.popUserSetTheme}>
           <p>Темная тема</p>

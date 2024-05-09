@@ -40,8 +40,8 @@ export const CancelButton = () => {
   );
 };
 
-export const DeleteButton = () => {
-  const { toggleDelete } = useContext(TaskContext);
+export const DeleteButton = ({ id }) => {
+  const { onDeleteTask } = useContext(TaskContext);
   return (
     <>
       <button
@@ -51,7 +51,7 @@ export const DeleteButton = () => {
           styles.del,
           styles.hover03
         )}
-        onClick={toggleDelete}
+        onClick={() => onDeleteTask(id)}
       >
         {/* не нашла класс */}
         <div>Удалить задачу</div>

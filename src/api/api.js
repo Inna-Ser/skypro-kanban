@@ -73,7 +73,6 @@ export const getTask = async ({
 export const addTask = async ({
     title,
     topic,
-    status,
     description,
     date,
     token
@@ -82,12 +81,12 @@ export const addTask = async ({
         const response = await fetch(baseURL, {
             method: "POST",
             headers: {
+                "Content-Type": "application/json",
                 authorization: `Bearer ${token}`
             },
             body: JSON.stringify({
                 title,
                 topic,
-                status,
                 description,
                 date
             })
@@ -107,7 +106,7 @@ export const deleteTask = async ({
     token
 }) => {
     try {
-        const response = await fetch(`baseURL + ${id}`, {
+        const response = await fetch(baseURL + "/" + id, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${token}`

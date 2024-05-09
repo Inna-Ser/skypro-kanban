@@ -10,7 +10,6 @@ import {
   DeleteButton,
   SaveButton,
 } from "../../buttons/Buttons";
-import { CalendarContent } from "../../calendarContent/CalendarContent";
 
 export const BrowseEdit = () => {
   return (
@@ -69,7 +68,7 @@ export const BrowseEdit = () => {
                   </div>
                 </form>
               </form>
-              <CalendarContent />
+              <Calendar />
             </div>
           </div>
 

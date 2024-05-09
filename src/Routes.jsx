@@ -19,7 +19,7 @@ export const AppRoutes = () => {
         <Route path="/" element={<MainPage />}>
           <Route path="/exit" element={<PopExit />} />
           <Route path="/add-task" element={<PopNewCard />} />
-          <Route path="/browse" element={<BrowseContaner />} />
+          <Route path="/browse/:id" element={<BrowseContaner />} />
           <Route path="/edit" element={<BrowseEdit />} />
         </Route>
       </Route>
