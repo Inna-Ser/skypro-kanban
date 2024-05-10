@@ -1,11 +1,29 @@
 import classNames from "classnames";
 import styles from "./Buttons.module.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TaskContext } from "../protectedRoute/context/TaskProvider";
+import { addTask } from "../../api/api";
+import { UserContext } from "../protectedRoute/context/AuthUserProvider";
 
 export const SaveButton = () => {
-  const { toggleSave } = useContext(TaskContext);
+  const { user } = useContext(UserContext);
+  const [taskData, setTaskData] = useState({
+    title: "",
+    topic: "",
+    description: "",
+    date: "",
+    token: user?.user.token,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [selectDate, setSelectDate] = useState(null);
+  // const [title, setTitle] = useState("");
+  // const [description, setDiscription] = useState("");
+  const { onCardAdd: addCard } = useContext(TaskContext);
+  const { onEditTask } = useContext(TaskContext);
+
+  //   const handl
   return (
     <>
       <button
@@ -14,7 +32,7 @@ export const SaveButton = () => {
           styles.btnBor,
           styles.hover03
         )}
-        onClick={toggleSave}
+        // onClick={toggleSave}
       >
         {/* не нашла класс */}
         <Link>Сохранить</Link>
@@ -54,7 +72,9 @@ export const DeleteButton = ({ id }) => {
         onClick={() => onDeleteTask(id)}
       >
         {/* не нашла класс */}
-        <div>Удалить задачу</div>
+        <div>
+          <Link to="/">Удалить задачу</Link>
+        </div>
       </button>
     </>
   );
@@ -91,6 +111,30 @@ export const CloseButton = () => {
         {/* не нашла класс */}
         <Link to="/">Закрыть</Link>
       </button>
+    </>
+  );
+};
+
+export const CreateButton = () => {
+  const { user } = useContext(UserContext);
+  const [taskData, setTaskData] = useState({
+    title: "",
+    topic: "",
+    description: "",
+    date: "",
+    token: user?.user.token,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [selectDate, setSelectDate] = useState(null);
+  // const [title, setTitle] = useState("");
+  // const [description, setDiscription] = useState("");
+  const { onCardAdd: addCard } = useContext(TaskContext);
+
+ 
+  return (
+    <>
+      
     </>
   );
 };

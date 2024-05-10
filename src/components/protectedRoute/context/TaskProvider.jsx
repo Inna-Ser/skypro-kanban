@@ -22,17 +22,17 @@ export const TaskProvider = ({ children }) => {
       });
   }, []);
 
-  const onCardAdd = async ({ title, topic, status, description, date }) => {
+  const onCardAdd = async ({ title, topic, description, date }) => {
     try {
-      const newTask = await addTask({
+      const resalte = await addTask({
         title,
         topic,
-        status,
         description,
         date,
         token: user?.user.token,
       });
-      setCards((prevCards) => [...prevCards, newTask]);
+      setCards(resalte.tasks);
+      // setCards((prevCards) => [...prevCards, newTask]);
     } catch (error) {
       console.error("Ошибка при добавлении задачи:", error.message);
     }
@@ -51,7 +51,6 @@ export const TaskProvider = ({ children }) => {
     id,
     title,
     topic,
-    status,
     description,
     date,
     token,
@@ -61,7 +60,6 @@ export const TaskProvider = ({ children }) => {
         id,
         title,
         topic,
-        status,
         description,
         date,
         token,

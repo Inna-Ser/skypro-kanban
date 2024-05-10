@@ -5,16 +5,21 @@ import styles from "./PopNewCard.module.css";
 import { addTask } from "../../api/api";
 import { Link } from "react-router-dom";
 import { TaskContext } from "../protectedRoute/context/TaskProvider";
+import { UserContext } from "../protectedRoute/context/AuthUserProvider";
+import { CreateButton } from "../buttons/Buttons";
 
 export const PopNewCard = () => {
+  const { user } = useContext(UserContext);
   const [taskData, setTaskData] = useState({
     title: "",
     topic: "",
     description: "",
     date: "",
+    token: user?.user.token,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
+  const [selectDate, setSelectDate] = useState(null);
   // const [title, setTitle] = useState("");
   // const [description, setDiscription] = useState("");
   const { onCardAdd: addCard } = useContext(TaskContext);
@@ -22,6 +27,13 @@ export const PopNewCard = () => {
   const onChange = (e) => {
     const { name, value } = e.target;
     setTaskData({ ...taskData, [name]: value });
+  };
+
+  const handleDateSelect = (date) => {
+    setTaskData((prevTaskDate) => ({
+      ...prevTaskDate,
+      date: date.toISOString(),
+    }));
   };
 
   const handleCardAdd = async (event) => {
@@ -99,7 +111,7 @@ export const PopNewCard = () => {
                   </div>
                 </form>
               </form>
-              <Calendar />
+              <Calendar onSelectDate={handleDateSelect} />
             </div>
             <div
               className={classNames(
@@ -165,7 +177,7 @@ export const PopNewCard = () => {
               onClick={handleCardAdd}
             >
               Создать задачу
-            </button>
+            </button>{" "}
           </div>
         </div>
       </div>

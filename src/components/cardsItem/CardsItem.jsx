@@ -4,11 +4,12 @@ import classNames from "classnames";
 import { ThemeCategories } from "../popBrowse/themeCategories/ThemeCategories";
 
 export const CardsItem = ({ _id, title, topic, status, description, date }) => {
+
   return (
     <div className={styles.cardsItem}>
       <div className={classNames(styles.cardsCard, styles.card)}>
         <div className={styles.cardGroup}>
-          <ThemeCategories />
+          <ThemeCategories topic={topic} />
           {/* <div className={classNames(styles.cardTheme, styles.orange)}>
             <p className={styles.orange}>Web Design</p>
           </div> */}
