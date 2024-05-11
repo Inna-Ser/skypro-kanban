@@ -6,7 +6,7 @@ import { TaskContext } from "../protectedRoute/context/TaskProvider";
 import { addTask } from "../../api/api";
 import { UserContext } from "../protectedRoute/context/AuthUserProvider";
 
-export const SaveButton = () => {
+export const SaveButton = ({id}) => {
   const { user } = useContext(UserContext);
   const [taskData, setTaskData] = useState({
     title: "",
@@ -15,15 +15,7 @@ export const SaveButton = () => {
     date: "",
     token: user?.user.token,
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectDate, setSelectDate] = useState(null);
-  // const [title, setTitle] = useState("");
-  // const [description, setDiscription] = useState("");
-  const { onCardAdd: addCard } = useContext(TaskContext);
-  const { onEditTask } = useContext(TaskContext);
-
-  //   const handl
+  const {onEditTask} = useContext(TaskContext);
   return (
     <>
       <button
@@ -32,7 +24,7 @@ export const SaveButton = () => {
           styles.btnBor,
           styles.hover03
         )}
-        // onClick={toggleSave}
+        onClick={() => onEditTask(id)}
       >
         {/* не нашла класс */}
         <Link>Сохранить</Link>
@@ -115,26 +107,3 @@ export const CloseButton = () => {
   );
 };
 
-export const CreateButton = () => {
-  const { user } = useContext(UserContext);
-  const [taskData, setTaskData] = useState({
-    title: "",
-    topic: "",
-    description: "",
-    date: "",
-    token: user?.user.token,
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectDate, setSelectDate] = useState(null);
-  // const [title, setTitle] = useState("");
-  // const [description, setDiscription] = useState("");
-  const { onCardAdd: addCard } = useContext(TaskContext);
-
- 
-  return (
-    <>
-      
-    </>
-  );
-};

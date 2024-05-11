@@ -6,7 +6,6 @@ import { addTask } from "../../api/api";
 import { Link } from "react-router-dom";
 import { TaskContext } from "../protectedRoute/context/TaskProvider";
 import { UserContext } from "../protectedRoute/context/AuthUserProvider";
-import { CreateButton } from "../buttons/Buttons";
 
 export const PopNewCard = () => {
   const { user } = useContext(UserContext);
@@ -19,7 +18,6 @@ export const PopNewCard = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
-  const [selectDate, setSelectDate] = useState(null);
   // const [title, setTitle] = useState("");
   // const [description, setDiscription] = useState("");
   const { onCardAdd: addCard } = useContext(TaskContext);
@@ -87,6 +85,7 @@ export const PopNewCard = () => {
                     onChange={onChange}
                   />
                 </div>
+
                 <form
                   className={classNames(
                     styles.popBrowseForm,
@@ -111,7 +110,10 @@ export const PopNewCard = () => {
                   </div>
                 </form>
               </form>
-              <Calendar onSelectDate={handleDateSelect} />
+              <Calendar
+                onSelectDate={handleDateSelect}
+                selected={taskData.date}
+              />
             </div>
             <div
               className={classNames(

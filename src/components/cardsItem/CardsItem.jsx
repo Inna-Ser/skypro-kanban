@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./CardsItem.module.css";
 import classNames from "classnames";
 import { ThemeCategories } from "../popBrowse/themeCategories/ThemeCategories";
+import { useContext } from "react";
+import { TaskContext } from "../protectedRoute/context/TaskProvider";
 
-export const CardsItem = ({ _id, title, topic, status, description, date }) => {
-
+export const CardsItem = ({ _id, title, date }) => {
+  const { id } = useParams();
+  // const { cards } = useContext(TaskContext);
+  // const card = cards.find((e) => e._id === id);
   return (
     <div className={styles.cardsItem}>
       <div className={classNames(styles.cardsCard, styles.card)}>
         <div className={styles.cardGroup}>
-          <ThemeCategories topic={topic} />
+          <ThemeCategories id={id} />
           {/* <div className={classNames(styles.cardTheme, styles.orange)}>
             <p className={styles.orange}>Web Design</p>
           </div> */}

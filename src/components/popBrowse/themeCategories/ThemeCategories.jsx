@@ -1,10 +1,13 @@
 import classNames from "classnames";
 import styles from "./ThemeCategories.module.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TaskContext } from "../../protectedRoute/context/TaskProvider";
-import { UserContext } from "../../protectedRoute/context/AuthUserProvider";
+import { useParams } from "react-router-dom";
 
-export const ThemeCategories = ({ topic }) => {
+export const ThemeCategories = () => {
+  const { id } = useParams();
+  const { cards } = useContext(TaskContext);
+  const card = cards.find((e) => e._id === id);
   return (
     <div
       className={classNames(
@@ -13,7 +16,7 @@ export const ThemeCategories = ({ topic }) => {
         styles.activeCategory
       )}
     >
-      <p className={styles.orange}>{topic}</p>
+      <p className={styles.orange}>{card && <p>{card.topic}</p>}</p>
     </div>
   );
 };

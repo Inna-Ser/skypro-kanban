@@ -22,12 +22,13 @@ export const TaskProvider = ({ children }) => {
       });
   }, []);
 
-  const onCardAdd = async ({ title, topic, description, date }) => {
+  const onCardAdd = async ({ title, topic, description, status, date }) => {
     try {
       const resalte = await addTask({
         title,
         topic,
         description,
+        status,
         date,
         token: user?.user.token,
       });
@@ -48,19 +49,19 @@ export const TaskProvider = ({ children }) => {
   };
 
   const onEditTask = async ({
-    id,
     title,
     topic,
     description,
+    status,
     date,
     token,
   }) => {
     try {
       const newCard = await editTask({
-        id,
         title,
         topic,
         description,
+        status,
         date,
         token,
       });

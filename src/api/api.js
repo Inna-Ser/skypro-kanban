@@ -74,6 +74,7 @@ export const addTask = async ({
     title,
     topic,
     description,
+    status,
     date,
     token
 }) => {
@@ -87,6 +88,7 @@ export const addTask = async ({
                 title,
                 topic,
                 description,
+                status,
                 date
             })
         });

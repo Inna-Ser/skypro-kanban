@@ -1,28 +1,32 @@
 import classNames from "classnames";
-import { statusList } from "../../../utils/cardItem";
 import { BrowseTopBlock } from "../browseTopBlock/BrowseTopBlock";
-import { StatusTheme } from "../stutusTheme/StatusTheme";
 import styles from "./BrowseContaner.module.css";
 import { CloseButton, DeleteButton, EditButton } from "../../buttons/Buttons";
 import { Calendar } from "../../calendar/Calendar";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { TaskContext } from "../../protectedRoute/context/TaskProvider";
 
 export const BrowseContaner = () => {
-const {id} = useParams();
+  const { id } = useParams();
+  const { cards } = useContext(TaskContext);
+  const card = cards.find((e) => e._id === id);
+
   return (
     <div className="pop-browse" id="popBrowse">
       <div className={styles.popBrowseContainer}>
         <div className={styles.popBrowseBlock}>
           <div className={styles.popBrowseContent}>
-            <BrowseTopBlock />
+            <BrowseTopBlock card={card} />
             <div className={classNames(styles.popBrowseStatus, styles.status)}>
               <p className={classNames(styles.statusP, styles.subttl)}>
                 Статус
               </p>
               <div className={styles.statusThemes}>
-                {statusList.map((status) => (
+                {card.status}
+                {/* {statusList.map((status) => (
                   <StatusTheme key={status} title={status} />
-                ))}
+                ))} */}
                 {/* <div className="status__theme _gray">
                     <p className="_gray">Нужно сделать</p>
                   </div>
@@ -72,7 +76,7 @@ const {id} = useParams();
             <div className={styles.popBrowseBtnBrowse}>
               <div className={styles.btnGroup}>
                 <EditButton />
-                <DeleteButton id={id}/>
+                <DeleteButton id={id} />
                 <CloseButton />
               </div>
             </div>
