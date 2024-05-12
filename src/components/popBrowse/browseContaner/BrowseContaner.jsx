@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { BrowseTopBlock } from "../browseTopBlock/BrowseTopBlock";
 import styles from "./BrowseContaner.module.css";
 import { CloseButton, DeleteButton, EditButton } from "../../buttons/Buttons";
 import { Calendar } from "../../calendar/Calendar";
@@ -17,7 +16,20 @@ export const BrowseContaner = () => {
       <div className={styles.popBrowseContainer}>
         <div className={styles.popBrowseBlock}>
           <div className={styles.popBrowseContent}>
-            <BrowseTopBlock card={card} />
+            <div className={styles.popBrowseTopBlock}>
+              <h3 className={styles.popBrowseTtl}>
+                {card ? card.title : "Loading..."}
+              </h3>
+              <div
+                className={classNames(
+                  styles.categoriesTheme,
+                  styles.orange,
+                  styles.activeCategory
+                )}
+              >
+                <p className={styles.orange}>{card.topic}</p>
+              </div>
+            </div>{" "}
             <div className={classNames(styles.popBrowseStatus, styles.status)}>
               <p className={classNames(styles.statusP, styles.subttl)}>
                 Статус

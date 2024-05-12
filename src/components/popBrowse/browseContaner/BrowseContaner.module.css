@@ -24,24 +24,91 @@
     display: block;
     text-align: left;
   }
-  /* .popBrowseContent .categoriesTheme {
-    opacity: 1;
+  .popBrowseTopBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
   }
-  .popBrowseContent .themeDown {
-    display: none;
-    margin-bottom: 20px;  
+  .popBrowseTtl {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
   }
-  .popBrowseContent .themeTop {
+  .categoriesTheme {
+    display: inline-block;
+    width: auto;
+    height: 30px;
+    padding: 8px 20px;
+    border-radius: 24px;
+    margin-right: 7px;
+    opacity: 0.4;
+  }
+  .themeTop {
     display: block;
   }
-  .status {
-    margin-bottom: 11px;
-  }*/
+ 
+  .orange {
+    background-color: #FFE4C2;
+    color: #FF6D00;
+  }
+  .activeCategory {
+    opacity: 1 !important;
+  }
   .statusP {
     margin-bottom: 14px;
   } 
  
-  /* .popBrowse {
+  .categoriesP {
+    margin-bottom: 14px;
+  }
+  .subttl {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .categoriesTheme {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 30px;
+    padding: 8px 20px;
+    border-radius: 24px;
+    margin-right: 7px;
+    opacity: 0.4;
+  }
+  .orange {
+    background-color: #FFE4C2;
+    color: #FF6D00;
+  }
+  .activeCategory {
+    opacity: 1 !important;
+  }
+  
+  .btnBor {
+    border-radius: 4px;
+    border: 0.7px solid var(--palette-navy-60, #565EEF);
+    outline: none;
+    background: transparent;
+    color: #565EEF;
+  }
+  .hover03:hover {
+    background-color: #33399b;
+    color: #FFFFFF;
+  }
+  .hover03:hover a {
+    color: #FFFFFF;
+  }
+  
+  .hover01:hover {
+    background-color: #33399b;
+  }
+  .hide {
+    display: none;
+  }
+  .popBrowse {
     display: block;
     width: 100%;
     height: 100%;
@@ -51,8 +118,11 @@
     top: 0;
     left: 0;
     z-index: 7;
-  } */
-  /* .statusThemes {
+  }
+  
+  
+  
+  .statusThemes {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -70,12 +140,18 @@
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
-  } */
-  /* .popBrowseWrap {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  } */
+  }
+  .gray {
+    background: #94A6BE;
+    color: #FFFFFF;
+  }
+ 
+  button,
+.btn {
+  cursor: pointer;
+  outline: none;
+}    
+    
   .btnGroup {
     display: flex;
     flex-direction: row;

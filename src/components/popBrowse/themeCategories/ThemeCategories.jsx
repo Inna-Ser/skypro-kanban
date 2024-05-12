@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { TaskContext } from "../../protectedRoute/context/TaskProvider";
 import { useParams } from "react-router-dom";
 
-export const ThemeCategories = () => {
+export const ThemeCategories = ({ topic }) => {
   const { id } = useParams();
   const { cards } = useContext(TaskContext);
   const card = cards.find((e) => e._id === id);
@@ -16,7 +16,7 @@ export const ThemeCategories = () => {
         styles.activeCategory
       )}
     >
-      <p className={styles.orange}>{card && <p>{card.topic}</p>}</p>
+      <p className={styles.orange}>{topic}</p>
     </div>
   );
 };

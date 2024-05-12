@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import styles from "./BrowseEdit.module.css";
-import { BrowseTopBlock } from "../browseTopBlock/BrowseTopBlock";
 import { statusList } from "../../../utils/cardItem";
 import { StatusTheme } from "../stutusTheme/StatusTheme";
 import { Calendar } from "../../calendar/Calendar";
@@ -10,14 +9,32 @@ import {
   DeleteButton,
   SaveButton,
 } from "../../buttons/Buttons";
+import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { TaskContext } from "../../protectedRoute/context/TaskProvider";
 
 export const BrowseEdit = () => {
+  const { id } = useParams();
+  const { cards } = useContext(TaskContext);
+  const card = cards.find((e) => e._id === id);
+
   return (
     <div className="pop-browse" id="popBrowse">
       <div className={styles.popBrowseContainer}>
         <div className={styles.popBrowseBlock}>
           <div className={styles.popBrowseContent}>
-            <BrowseTopBlock />
+            <div className={styles.popBrowseTopBlock}>
+              <h3 className={styles.popBrowseTtl}>{card.title}</h3>
+              <div
+                className={classNames(
+                  styles.categoriesTheme,
+                  styles.orange,
+                  styles.activeCategory
+                )}
+              >
+                <p className={styles.orange}>{card.topic}</p>
+              </div>
+            </div>{" "}
             <div className={classNames(styles.popBrowseStatus, styles.status)}>
               <p className={classNames(styles.statusP, styles.subttl)}>
                 Статус
