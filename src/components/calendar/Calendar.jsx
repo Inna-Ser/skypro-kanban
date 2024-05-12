@@ -1,5 +1,4 @@
 import { DayPicker } from "react-day-picker";
-import { useState } from "react";
 import { format } from "date-fns";
 
 export const Calendar = ({ onSelectDate, selected }) => {

@@ -5,7 +5,16 @@
     padding: 11px 14px 10px;
     margin-right: 7px;
     margin-bottom: 7px;
+    cursor: pointer;
   }
   .hide {
-    display: none;
+    display: block;
+  }
+  .statusTheme:hover {
+    background-color: #D4DBE5;
+    color: white;
+  }
+  .active {
+    background-color: #D4DBE5;
+    color: white;
   }

@@ -133,8 +133,8 @@ export const editTask = async ({
     token
 }) => {
     try {
-        const response = await fetch(`baseURL + ${id}`, {
-            method: "POST",
+        const response = await fetch(baseURL + "/" + id, {
+            method: "PUT",
             headers: {
                 authorization: `Bearer ${token}`
             },

@@ -10,13 +10,28 @@ import {
   SaveButton,
 } from "../../buttons/Buttons";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { TaskContext } from "../../protectedRoute/context/TaskProvider";
+import { UserContext } from "../../protectedRoute/context/AuthUserProvider";
 
 export const BrowseEdit = () => {
   const { id } = useParams();
   const { cards } = useContext(TaskContext);
   const card = cards.find((e) => e._id === id);
+  const { user } = useContext(UserContext);
+  const [taskData, setTaskData] = useState({
+    title: card.title,
+    topic: card.topic,
+    status: card.status,
+    description: card.description,
+    token: user?.user.token
+  });
+  const [selected, setSelected] = useState(card.date)
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setTaskData({ ...taskData, [name]: value });
+  };
 
   return (
     <div className="pop-browse" id="popBrowse">
@@ -24,7 +39,7 @@ export const BrowseEdit = () => {
         <div className={styles.popBrowseBlock}>
           <div className={styles.popBrowseContent}>
             <div className={styles.popBrowseTopBlock}>
-              <h3 className={styles.popBrowseTtl}>{card.title}</h3>
+              <h3 className={styles.popBrowseTtl}>{taskData.title}</h3>
               <div
                 className={classNames(
                   styles.categoriesTheme,
@@ -41,7 +56,7 @@ export const BrowseEdit = () => {
               </p>
               <div className={styles.statusThemes}>
                 {statusList.map((status) => (
-                  <StatusTheme key={status} title={status} />
+                  <StatusTheme key={status} status={status} onChange={onChange} currentStatus={taskData.status} />
                 ))}
                 {/* <div className="status__theme _gray">
                     <p className="_gray">Нужно сделать</p>
@@ -81,19 +96,21 @@ export const BrowseEdit = () => {
                       name="description"
                       id="textArea01"
                       placeholder="Введите описание задачи..."
+                      value={taskData.description}
+                      onChange={onChange}
                     ></textarea>
                   </div>
                 </form>
               </form>
-              <Calendar />
+              <Calendar selected={selected} onSelectDate={setSelected}/>
             </div>
           </div>
 
           <div className={styles.popBrowseBtnBrowse}>
             <div className={styles.btnGroup}>
-              <SaveButton />
+              <SaveButton id={id} taskData={{...taskData, date: selected}}/>
               <CancelButton />
-              <DeleteButton />
+              <DeleteButton id={id} />
               <CloseButton />
             </div>
           </div>

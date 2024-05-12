@@ -79,6 +79,7 @@ export const BrowseContaner = () => {
                       // value={}
                       readOnly
                       placeholder="Описание задачи..."
+                      value={card.description}
                     ></textarea>
                   </div>
                 </form>
@@ -87,7 +88,7 @@ export const BrowseContaner = () => {
             </div>
             <div className={styles.popBrowseBtnBrowse}>
               <div className={styles.btnGroup}>
-                <EditButton />
+                <EditButton id={id} />
                 <DeleteButton id={id} />
                 <CloseButton />
               </div>

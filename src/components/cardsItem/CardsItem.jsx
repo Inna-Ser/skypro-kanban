@@ -4,9 +4,6 @@ import classNames from "classnames";
 import { ThemeCategories } from "../popBrowse/themeCategories/ThemeCategories";
 
 export const CardsItem = ({ _id, title, date, topic }) => {
-  // const { id } = useParams();
-  // const { cards } = useContext(TaskContext);
-  // const card = cards.find((e) => e._id === id);
 
   return (
     <div className={styles.cardsItem}>

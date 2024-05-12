@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./AuthUserProvider";
 import { addTask, deleteTask, editTask, getTask } from "../../../api/api";
+import { useNavigate } from "react-router-dom";
 
 export const TaskContext = React.createContext(null);
 
@@ -8,6 +9,8 @@ export const TaskProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
   const [card, setCard] = useState();
   const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+
   useEffect(() => {
     getTask({ token: user?.user.token })
       .then((data) => {
@@ -49,6 +52,7 @@ export const TaskProvider = ({ children }) => {
   };
 
   const onEditTask = async ({
+    id,
     title,
     topic,
     description,
@@ -57,7 +61,8 @@ export const TaskProvider = ({ children }) => {
     token,
   }) => {
     try {
-      const newCard = await editTask({
+      const resalte = await editTask({
+        id,
         title,
         topic,
         description,
@@ -65,7 +70,9 @@ export const TaskProvider = ({ children }) => {
         date,
         token,
       });
-      setCard(newCard);
+      console.log(resalte);
+      setCards(resalte.tasks);
+      navigate("/");
     } catch (error) {
       console.error("Ошибка при редактировании задачи:", error.message);
     }

@@ -1,8 +1,15 @@
 import classNames from "classnames";
 import styles from "./StatusTheme.module.css";
 
-export const StatusTheme = ({ status }) => {
+export const StatusTheme = ({ status, onChange, currentStatus }) => {
   return (
-    <div className={classNames(styles.statusTheme, styles.hide)}>{status}</div>
+    <label
+      className={classNames(styles.statusTheme, {
+        [styles.active]: currentStatus === status,
+      })}
+    >
+      <input type="radio" value={status} onChange={onChange} name="status" />
+      {status}
+    </label>
   );
 };

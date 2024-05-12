@@ -3,19 +3,11 @@ import styles from "./Buttons.module.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { TaskContext } from "../protectedRoute/context/TaskProvider";
-import { addTask } from "../../api/api";
 import { UserContext } from "../protectedRoute/context/AuthUserProvider";
 
-export const SaveButton = ({id}) => {
-  const { user } = useContext(UserContext);
-  const [taskData, setTaskData] = useState({
-    title: "",
-    topic: "",
-    description: "",
-    date: "",
-    token: user?.user.token,
-  });
-  const {onEditTask} = useContext(TaskContext);
+export const SaveButton = ({ id, taskData }) => {
+  
+  const { onEditTask } = useContext(TaskContext);
   return (
     <>
       <button
@@ -24,7 +16,7 @@ export const SaveButton = ({id}) => {
           styles.btnBor,
           styles.hover03
         )}
-        onClick={() => onEditTask(id)}
+        onClick={() => onEditTask({id, ...taskData})}
       >
         {/* не нашла класс */}
         <Link>Сохранить</Link>
@@ -72,7 +64,7 @@ export const DeleteButton = ({ id }) => {
   );
 };
 
-export const EditButton = () => {
+export const EditButton = ({ id }) => {
   return (
     <>
       <button
@@ -84,7 +76,7 @@ export const EditButton = () => {
         )}
       >
         {/* не нашла класс */}
-        <Link to="/edit">Редактировать задачу</Link>
+        <Link to={`/edit/${id}`}>Редактировать задачу</Link>
       </button>
     </>
   );
@@ -106,4 +98,3 @@ export const CloseButton = () => {
     </>
   );
 };
-

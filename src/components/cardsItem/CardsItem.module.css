@@ -170,10 +170,8 @@
     margin-right: 7px;
     opacity: 0.4;
   }
-  .orange {
-    background-color: #FFE4C2;
-    color: #FF6D00;
-  }
+  
+  
   .activeCategory {
     opacity: 1 !important;
   }
