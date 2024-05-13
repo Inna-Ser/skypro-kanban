@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { registration } from "../../../api/api";
-import { UserContext } from "../../protectedRoute/context/AuthUserProvider";
+import { UserContext } from "../../../context/AuthUserProvider";
 import styles from "./Register.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
@@ -11,7 +11,6 @@ export const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  //   const [autocompleteOff, setAutocompleteOff] = useState(false);
   const { registr } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -49,12 +48,12 @@ export const Register = () => {
         registr({ data });
         navigate("/login");
       })
+      .catch((error) => {
+        setError((error.message = "Ошибка регистрации"));
+      })
       .finally(() => setIsSubmitting(false));
   };
-  // Здесь обычно будет вызов API для входа, но мы его имитируем
-  // Предположим, что вход прошел успешно и мы устанавливаем пользователя в контекст
 
-  // Перенаправляем пользователя на главную страницу
   return (
     <div className={styles.login}>
       <div className={styles.loginBlock}>

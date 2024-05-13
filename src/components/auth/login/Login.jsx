@@ -3,7 +3,7 @@ import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 import { signin } from "../../../api/api";
 import classNames from "classnames";
-import { UserContext } from "../../protectedRoute/context/AuthUserProvider";
+import { UserContext } from "../../../context/AuthUserProvider";
 
 export const Login = () => {
   const [error, setError] = useState(null);
@@ -37,6 +37,9 @@ export const Login = () => {
     signin({ login: email, password })
       .then((data) => {
         login({ data });
+      })
+      .catch((error) => {
+        setError((error.message = "Не верно введен логин или пароль"));
       })
       .finally(() => setIsSubmitting(false));
   };

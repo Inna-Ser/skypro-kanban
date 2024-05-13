@@ -5,6 +5,7 @@
     padding: 11px 14px 10px;
     margin-right: 7px;
     margin-bottom: 7px;
+    appearance: none;
     cursor: pointer;
   }
   .hide {
@@ -13,6 +14,9 @@
   .statusTheme:hover {
     background-color: #D4DBE5;
     color: white;
+  }
+  .inputStatusTheme {
+    appearance: none;
   }
   .active {
     background-color: #D4DBE5;

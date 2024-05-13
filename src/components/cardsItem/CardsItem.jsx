@@ -10,9 +10,6 @@ export const CardsItem = ({ _id, title, date, topic }) => {
       <div className={classNames(styles.cardsCard, styles.card)}>
         <div className={styles.cardGroup}>
           <ThemeCategories topic={topic} />
-          {/* <div className={classNames(styles.cardTheme, styles.orange)}>
-            <p className={styles.orange}>Web Design</p>
-          </div> */}
           <Link to={`/browse/${_id}`} target="_self">
             <div className={styles.cardBtn}>
               <div></div>

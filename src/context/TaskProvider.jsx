@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./AuthUserProvider";
-import { addTask, deleteTask, editTask, getTask } from "../../../api/api";
+import { addTask, deleteTask, editTask, getTask } from "../api/api";
 import { useNavigate } from "react-router-dom";
 
 export const TaskContext = React.createContext(null);
 
 export const TaskProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
-  const [card, setCard] = useState();
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -36,7 +35,7 @@ export const TaskProvider = ({ children }) => {
         token: user?.user.token,
       });
       setCards(resalte.tasks);
-      // setCards((prevCards) => [...prevCards, newTask]);
+      navigate("/");
     } catch (error) {
       console.error("Ошибка при добавлении задачи:", error.message);
     }
@@ -80,7 +79,7 @@ export const TaskProvider = ({ children }) => {
 
   return (
     <TaskContext.Provider
-      value={{ onCardAdd, cards, setCards, onDeleteTask, onEditTask, card }}
+      value={{ onCardAdd, cards, setCards, onDeleteTask, onEditTask }}
     >
       {children}
     </TaskContext.Provider>

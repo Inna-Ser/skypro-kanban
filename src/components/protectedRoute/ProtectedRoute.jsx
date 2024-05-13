@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { UserContext } from "./context/AuthUserProvider";
+import { UserContext } from "../../context/AuthUserProvider";
 
 export const ProtectRoute = ({ redirectPatch = "/login" }) => {
   const { user } = useContext(UserContext);

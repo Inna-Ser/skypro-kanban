@@ -4,8 +4,8 @@ import classNames from "classnames";
 import styles from "./PopNewCard.module.css";
 import { addTask } from "../../api/api";
 import { Link } from "react-router-dom";
-import { TaskContext } from "../protectedRoute/context/TaskProvider";
-import { UserContext } from "../protectedRoute/context/AuthUserProvider";
+import { TaskContext } from "../../context/TaskProvider";
+import { UserContext } from "../../context/AuthUserProvider";
 
 export const PopNewCard = () => {
   const { user } = useContext(UserContext);
@@ -16,10 +16,8 @@ export const PopNewCard = () => {
     date: "",
     token: user?.user.token,
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
-  // const [title, setTitle] = useState("");
-  // const [description, setDiscription] = useState("");
   const { onCardAdd: addCard } = useContext(TaskContext);
 
   const onChange = (e) => {
@@ -52,6 +50,7 @@ export const PopNewCard = () => {
       addCard(data);
     } catch (error) {
       console.error("Ошибка при добавлении задачи:", error.message);
+      setError("Ошибка при добавлении задачи. Пожалуйста, попробуйте еще раз.");
     } finally {
       setIsSubmitting(false);
     }
@@ -115,6 +114,7 @@ export const PopNewCard = () => {
                 selected={taskData.date}
               />
             </div>
+            {error && <p className={styles.error}>{error}</p>}
             <div
               className={classNames(
                 styles.popNewCardCategories,
@@ -126,15 +126,20 @@ export const PopNewCard = () => {
               </p>
               <div className={styles.categoriesThemes}>
                 <div
-                  className={classNames(
-                    styles.categoriesTheme,
-                    styles.orange,
-                    styles.activeCategory
-                  )}
+                  className={
+                    taskData.topic === "Web Design"
+                      ? classNames(
+                          styles.categoriesTheme,
+                          styles.orange,
+                          styles.activeCategory
+                        )
+                      : classNames(styles.categoriesTheme, styles.orange)
+                  }
                 >
                   <label className={styles.orange}>
                     Web Design
                     <input
+                      className={styles.inputStatus}
                       name="topic"
                       type="radio"
                       value="Web Design"
@@ -144,11 +149,20 @@ export const PopNewCard = () => {
                   </label>
                 </div>
                 <div
-                  className={classNames(styles.categoriesTheme, styles.green)}
+                  className={
+                    taskData.topic === "Research"
+                      ? classNames(
+                          styles.categoriesTheme,
+                          styles.green,
+                          styles.activeCategory
+                        )
+                      : classNames(styles.categoriesTheme, styles.green)
+                  }
                 >
                   <label className={styles.green}>
                     Research
                     <input
+                      className={styles.inputStatus}
                       name="topic"
                       type="radio"
                       value="Research"
@@ -158,11 +172,20 @@ export const PopNewCard = () => {
                   </label>
                 </div>
                 <div
-                  className={classNames(styles.categoriesTheme, styles.purple)}
+                  className={
+                    taskData.topic === "Copywriting"
+                      ? classNames(
+                          styles.categoriesTheme,
+                          styles.purple,
+                          styles.activeCategory
+                        )
+                      : classNames(styles.categoriesTheme, styles.purple)
+                  }
                 >
                   <label className={styles.purple}>
                     Copywriting
                     <input
+                      className={styles.inputStatus}
                       name="topic"
                       type="radio"
                       value="Copywriting"

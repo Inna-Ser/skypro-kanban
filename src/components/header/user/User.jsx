@@ -14,14 +14,14 @@ const UserSet = () => {
       >
         <p className={styles.popUserSetName}>Ivan Ivanov</p>
         <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
-        <div className={styles.popUserSetTheme}>
+        {/* <div className={styles.popUserSetTheme}>
           <p>Темная тема</p>
           <input
             type="checkbox"
             className={styles.checkbox} //нашла только type//
             name="checkbox"
           />
-        </div>
+        </div> */}
         <button
           type="button"
           className={classNames(styles.setUserButton, shared.hover03)}

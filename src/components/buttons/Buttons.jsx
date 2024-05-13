@@ -1,12 +1,10 @@
 import classNames from "classnames";
 import styles from "./Buttons.module.css";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
-import { TaskContext } from "../protectedRoute/context/TaskProvider";
-import { UserContext } from "../protectedRoute/context/AuthUserProvider";
+import { useContext } from "react";
+import { TaskContext } from "../../context/TaskProvider";
 
 export const SaveButton = ({ id, taskData }) => {
-  
   const { onEditTask } = useContext(TaskContext);
   return (
     <>
@@ -16,7 +14,7 @@ export const SaveButton = ({ id, taskData }) => {
           styles.btnBor,
           styles.hover03
         )}
-        onClick={() => onEditTask({id, ...taskData})}
+        onClick={() => onEditTask({ id, ...taskData })}
       >
         {/* не нашла класс */}
         <Link>Сохранить</Link>
@@ -25,7 +23,7 @@ export const SaveButton = ({ id, taskData }) => {
   );
 };
 
-export const CancelButton = () => {
+export const CancelButton = ({ id }) => {
   return (
     <>
       <button
@@ -36,7 +34,7 @@ export const CancelButton = () => {
         )}
       >
         {/* не нашла класс */}
-        <Link>Отменить</Link>
+        <Link to={`/browse/${id}`}>Отменить</Link>
       </button>
     </>
   );
@@ -75,7 +73,6 @@ export const EditButton = ({ id }) => {
           styles.hover03
         )}
       >
-        {/* не нашла класс */}
         <Link to={`/edit/${id}`}>Редактировать задачу</Link>
       </button>
     </>

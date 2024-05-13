@@ -4,7 +4,7 @@ import { CloseButton, DeleteButton, EditButton } from "../../buttons/Buttons";
 import { Calendar } from "../../calendar/Calendar";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
-import { TaskContext } from "../../protectedRoute/context/TaskProvider";
+import { TaskContext } from "../../../context/TaskProvider";
 
 export const BrowseContaner = () => {
   const { id } = useParams();

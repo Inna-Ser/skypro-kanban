@@ -8,7 +8,7 @@ export const StatusTheme = ({ status, onChange, currentStatus }) => {
         [styles.active]: currentStatus === status,
       })}
     >
-      <input type="radio" value={status} onChange={onChange} name="status" />
+      <input className={styles.inputStatusTheme} type="radio" value={status} onChange={onChange} name="status" />
       {status}
     </label>
   );

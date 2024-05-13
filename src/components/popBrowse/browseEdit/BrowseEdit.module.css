@@ -18,7 +18,7 @@
     padding: 40px 30px 38px;
     border-radius: 10px;
     border: 0.7px solid #D4DBE5;
-    position: relative;
+    position: fixed;
   }
   .popBrowseContent {
     display: block;

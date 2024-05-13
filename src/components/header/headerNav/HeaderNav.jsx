@@ -1,12 +1,9 @@
 import classNames from "classnames";
 import styles from "./HeaderNav.module.css";
 import { User } from "../user/User";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { TaskContext } from "../../protectedRoute/context/TaskProvider";
 
-const NewTasks = () => {
-  const { onCardAdd } = useContext(TaskContext);
+const NewTasks = ({ onCardAdd }) => {
   return (
     <button
       className={classNames(styles.headerBtnMainNew, styles.hover01)}

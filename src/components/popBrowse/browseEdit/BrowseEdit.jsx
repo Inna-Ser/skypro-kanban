@@ -11,8 +11,8 @@ import {
 } from "../../buttons/Buttons";
 import { useParams } from "react-router-dom";
 import { useContext, useState } from "react";
-import { TaskContext } from "../../protectedRoute/context/TaskProvider";
-import { UserContext } from "../../protectedRoute/context/AuthUserProvider";
+import { TaskContext } from "../../../context/TaskProvider";
+import { UserContext } from "../../../context/AuthUserProvider";
 
 export const BrowseEdit = () => {
   const { id } = useParams();
@@ -24,9 +24,9 @@ export const BrowseEdit = () => {
     topic: card.topic,
     status: card.status,
     description: card.description,
-    token: user?.user.token
+    token: user?.user.token,
   });
-  const [selected, setSelected] = useState(card.date)
+  const [selected, setSelected] = useState(card.date);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -56,20 +56,13 @@ export const BrowseEdit = () => {
               </p>
               <div className={styles.statusThemes}>
                 {statusList.map((status) => (
-                  <StatusTheme key={status} status={status} onChange={onChange} currentStatus={taskData.status} />
+                  <StatusTheme
+                    key={status}
+                    status={status}
+                    onChange={onChange}
+                    currentStatus={taskData.status}
+                  />
                 ))}
-                {/* <div className="status__theme _gray">
-                    <p className="_gray">Нужно сделать</p>
-                  </div>
-                  <div className="status__theme _hide">
-                    <p>В работе</p>
-                  </div>
-                  <div className="status__theme _hide">
-                    <p>Тестирование</p>
-                  </div>
-                  <div className="status__theme _hide">
-                    <p>Готово</p>
-                  </div> */}
               </div>
             </div>
             <div className={styles.popNewCardWrap}>
@@ -102,14 +95,14 @@ export const BrowseEdit = () => {
                   </div>
                 </form>
               </form>
-              <Calendar selected={selected} onSelectDate={setSelected}/>
+              <Calendar selected={selected} onSelectDate={setSelected} />
             </div>
           </div>
 
           <div className={styles.popBrowseBtnBrowse}>
             <div className={styles.btnGroup}>
-              <SaveButton id={id} taskData={{...taskData, date: selected}}/>
-              <CancelButton />
+              <SaveButton id={id} taskData={{ ...taskData, date: selected }} />
+              <CancelButton id={id} />
               <DeleteButton id={id} />
               <CloseButton />
             </div>
