@@ -19,9 +19,10 @@
 	align-items: flex-start;
 	justify-content: stretch;
 	padding: 15px 13px 19px;
+	row-gap: 8px;
 }
 .card {
-	padding: 2em;
+	padding: 1.5em;
   }
 .cardGroup {
 	width: 100%;
@@ -33,7 +34,6 @@
 }
 .cardTheme {
 	width: auto;
-	/* height: 20px; */
 	padding: 5px 14px;
 	border-radius: 18px;
 }
@@ -64,6 +64,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
+	row-gap: 10px;
 }
 .cardDate {
 	display: flex;

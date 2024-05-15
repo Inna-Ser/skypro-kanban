@@ -1,5 +1,5 @@
 export const topicStyles = {
-    "Web Design": "green",
-    "Copywriting": "purple",
-    "Research": "orange"
-  };
+  "Web Design": "orange",
+  "Copywriting": "purple",
+  "Research": "green"
+};

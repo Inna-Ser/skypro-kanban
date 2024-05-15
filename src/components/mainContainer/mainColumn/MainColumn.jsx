@@ -10,7 +10,7 @@ export const MainColumn = ({ title, cardList }) => {
       </div>
       <div className={styles.cards}>
         {cardList.map((item) => (
-          <CardsItem key={item.id} {...item} topic={item.topic} />
+          <CardsItem key={item._id} {...item} topic={item.topic} />
         ))}
       </div>
     </div>

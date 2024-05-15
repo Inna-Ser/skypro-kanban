@@ -5,6 +5,7 @@ import { Calendar } from "../../calendar/Calendar";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { TaskContext } from "../../../context/TaskProvider";
+import { ThemeCategories } from "../themeCategories/ThemeCategories";
 
 export const BrowseContaner = () => {
   const { id } = useParams();
@@ -20,7 +21,8 @@ export const BrowseContaner = () => {
               <h3 className={styles.popBrowseTtl}>
                 {card ? card.title : "Loading..."}
               </h3>
-              <div
+              <ThemeCategories topic={card.topic} />
+              {/* <div
                 className={classNames(
                   styles.categoriesTheme,
                   styles.orange,
@@ -28,30 +30,13 @@ export const BrowseContaner = () => {
                 )}
               >
                 <p className={styles.orange}>{card.topic}</p>
-              </div>
+              </div> */}
             </div>{" "}
             <div className={classNames(styles.popBrowseStatus, styles.status)}>
               <p className={classNames(styles.statusP, styles.subttl)}>
                 Статус
               </p>
-              <div className={styles.statusThemes}>
-                {card.status}
-                {/* {statusList.map((status) => (
-                  <StatusTheme key={status} title={status} />
-                ))} */}
-                {/* <div className="status__theme _gray">
-                    <p className="_gray">Нужно сделать</p>
-                  </div>
-                  <div className="status__theme _hide">
-                    <p>В работе</p>
-                  </div>
-                  <div className="status__theme _hide">
-                    <p>Тестирование</p>
-                  </div>
-                  <div className="status__theme _hide">
-                    <p>Готово</p>
-                  </div> */}
-              </div>
+              <div className={styles.statusThemes}>{card.status}</div>
             </div>
             <div className={styles.popNewCardWrap}>
               <form

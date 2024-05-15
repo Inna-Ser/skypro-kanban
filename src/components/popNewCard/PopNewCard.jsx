@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { Calendar } from "../calendar/Calendar";
 import classNames from "classnames";
 import styles from "./PopNewCard.module.css";
-import { addTask } from "../../api/api";
 import { Link } from "react-router-dom";
 import { TaskContext } from "../../context/TaskProvider";
 import { UserContext } from "../../context/AuthUserProvider";
@@ -46,8 +45,7 @@ export const PopNewCard = () => {
       return;
     }
     try {
-      const data = await addTask(taskData);
-      addCard(data);
+      addCard(taskData);
     } catch (error) {
       console.error("Ошибка при добавлении задачи:", error.message);
       setError("Ошибка при добавлении задачи. Пожалуйста, попробуйте еще раз.");
