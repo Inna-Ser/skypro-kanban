@@ -111,7 +111,7 @@
   align-items: center;
   width: auto;
   height: 30px;
-  padding: 8px 20px;
+  padding: 18px 20px;
   border-radius: 24px;
   margin-right: 7px;
   opacity: 0.4;
@@ -163,15 +163,15 @@
   justify-content: space-between;
   margin-top: 15px;
 }
-.statusTheme {
+/* .statusTheme {
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94A6BE;
   padding: 10px 14px;
   margin-right: 7px;
   margin-bottom: 7px;
-  font-size: 14px;
-}
+  font-size: 16px;
+} */
 .statusThemeP {
   font-size: 14px;
   line-height: 1;
@@ -191,15 +191,6 @@ outline: none;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
-}
-.popBrowseTtl {
-  color: #000;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 24px;
-}
-.themeTop {
-  display: block;
 }
 .orange {
   background-color: #FFE4C2;
