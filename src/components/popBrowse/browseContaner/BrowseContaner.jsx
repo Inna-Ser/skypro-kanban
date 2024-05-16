@@ -49,6 +49,7 @@ export const BrowseContaner = () => {
                 </div>
               </form>
               <div className={styles.calendar}>
+                <p className={styles.calendarTitle}>Даты</p>
                 <Calendar />
               </div>
             </div>

@@ -265,6 +265,12 @@
   margin: 20px 0;
 }
 .calendar {
-  padding-top: 17px;
+  /* padding-top: 17px; */
+}
+.calendarTitle {
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  margin-left: 1.5em;
 }
 
