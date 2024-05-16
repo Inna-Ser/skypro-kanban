@@ -5,7 +5,7 @@ import { Calendar } from "../../calendar/Calendar";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { TaskContext } from "../../../context/TaskProvider";
-import { ThemeCategories } from "../themeCategories/ThemeCategories";
+import { topicStyles } from "../../../lib/DataTopic";
 
 export const BrowseContaner = () => {
   const { id } = useParams();
@@ -21,18 +21,30 @@ export const BrowseContaner = () => {
               <h3 className={styles.popBrowseTtl}>
                 {card ? card.title : "Loading..."}
               </h3>
-              <ThemeCategories topic={card.topic} />
+              <div
+                className={classNames(
+                  styles.categoriesTheme,
+                  styles[topicStyles[card.topic]],
+                  styles.activeCategory
+                )}
+              >
+                <p className={styles[card.topic]}>{card.topic}</p>
+              </div>
             </div>{" "}
-            <p className={styles.subttl}>Статус</p>
-            <label className={classNames(styles.statusTheme, styles.active)}>
-              {card.status}
-            </label>
             <div className={styles.popNewCardWrap}>
               <form
                 className={classNames(styles.popBrowseForm, styles.formBrowse)}
                 id="formBrowseCard"
                 action="#"
               >
+                <div className={styles.statusArea}>
+                  <p className={styles.subttl}>Статус</p>
+                  <label
+                    className={classNames(styles.statusTheme, styles.active)}
+                  >
+                    {card.status}
+                  </label>
+                </div>
                 <div className={styles.formBrowseBlock}>
                   <label htmlFor="textArea01" className={styles.subttl}>
                     Описание задачи
@@ -49,8 +61,7 @@ export const BrowseContaner = () => {
                 </div>
               </form>
               <div className={styles.calendar}>
-                <p className={styles.calendarTitle}>Даты</p>
-                <Calendar />
+                <Calendar selected={card.date}/>
               </div>
             </div>
             <div className={styles.popBrowseBtnBrowse}>

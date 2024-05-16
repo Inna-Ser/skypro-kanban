@@ -1,64 +1,7 @@
-.popNewCardCalendar {
-    width: 100%;
-  }
-  .calendar {
-    max-width: 340px;
-    width: 100%;
-  }
-  .calendarTtl {
-    margin-bottom: 14px;
-    padding: 0 7px;
-  }
   .subttl {
     color: #000;
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
+    margin-left: 2em;
   }
-  .calendarBlock {
-    display: block;
-  }
-  .calendarNav {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 14px;
-    padding: 0 7px;
-  }
-  .calendarTtl, .calendarNav, .calendarPeriod {
-    padding: 0;
-  }
-  .calendarMonth {
-    color: #94A6BE;
-    font-size: 14px;
-    line-height: 25px;
-    font-weight: 600;
-  }
-  .navActions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .navAction {
-    width: 18px;
-    height: 25px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .navAction svg {
-    fill: #94A6BE;
-  }
-  .calendarPeriod {
-    padding: 0 7px;
-  }
-  .calendarP {
-    color: #94A6BE;
-    font-size: 10px;
-    line-height: 1;
-  }
-  .calendar .dateEnd {
-    margin-bottom: 14px;
-  }  

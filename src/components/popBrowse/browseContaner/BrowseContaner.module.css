@@ -37,7 +37,8 @@
     line-height: 24px;
   }
   .categoriesTheme {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     width: auto;
     height: 30px;
     padding: 8px 20px;
@@ -45,8 +46,23 @@
     margin-right: 7px;
     opacity: 0.4;
   }
+  .statusArea {
+    margin-bottom: 20px;
+  }
   .themeTop {
     display: block;
+  }
+  .orange {
+	  background-color: #FFE4C2;
+	  color: #FF6D00;
+  }
+  .green {
+	  background-color: #B4FDD1;
+	  color: #06B16E;
+  }
+  .purple {
+	  background-color: #E9D4FF;
+	  color: #9A48F1;
   }
  
   .orange {
@@ -235,8 +251,8 @@
   margin-bottom: 20px;
 }
 .popBrowseForm .formBrowseArea {
-  width: 370px;
-  max-width: 370px;
+  width: 290px;
+  max-width: 290px;
   text-wrap: balance;
   outline: none;
   padding: 14px;
@@ -260,12 +276,6 @@
   &:focus {
     background-color: white;
   } 
-}
-.popBrowseForm {
-  margin: 20px 0;
-}
-.calendar {
-  /* padding-top: 17px; */
 }
 .calendarTitle {
   font-size: 14px;

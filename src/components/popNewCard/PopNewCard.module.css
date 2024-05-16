@@ -1,7 +1,7 @@
 .popNewCard {
     display: block;
     width: 100%;
-    min-width: 375px;
+    min-width: 630px;
     min-height: 100vh;
     position: absolute;
     top: 0;

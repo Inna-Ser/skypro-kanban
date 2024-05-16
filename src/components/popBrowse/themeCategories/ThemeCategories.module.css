@@ -11,11 +11,12 @@
     display: flex;
     align-items: center;
     width: auto;
-    height: 30px;
-    padding: 8px 20px;
-    border-radius: 24px;
+    height: 20px;
+    padding: 5px 14px 4px 14px;
+    border-radius: 18px;
     margin-right: 7px;
     opacity: 0.4;
+    font-size: 10px;
   }
   .orange {
     background-color: #FFE4C2;
@@ -24,7 +25,6 @@
   .activeCategory {
     opacity: 1 !important;
   }
-  
   .btnBor {
     border-radius: 4px;
     border: 0.7px solid var(--palette-navy-60, #565EEF);
@@ -39,7 +39,6 @@
   .hover03:hover a {
     color: #FFFFFF;
   }
-  
   .hover01:hover {
     background-color: #33399b;
   }
@@ -57,54 +56,16 @@
     left: 0;
     z-index: 7;
   }
-  
-  
-  
-  .statusThemes {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
+  .orange {
+	  background-color: #FFE4C2;
+	  color: #FF6D00;
   }
-  .statusTheme {
-    border-radius: 24px;
-    border: 0.7px solid rgba(148, 166, 190, 0.4);
-    color: #94A6BE;
-    padding: 11px 14px 10px;
-    margin-right: 7px;
-    margin-bottom: 7px;
+  .green {
+	  background-color: #B4FDD1;
+	  color: #06B16E;
   }
-  .statusThemeP {
-    font-size: 14px;
-    line-height: 1;
-    letter-spacing: -0.14px;
-  }
-  .gray {
-    background: #94A6BE;
-    color: #FFFFFF;
+  .purple {
+	  background-color: #E9D4FF;
+	  color: #9A48F1;
   }
  
-  button,
-.btn {
-  cursor: pointer;
-  outline: none;
-}    
-.orange {
-	background-color: #FFE4C2;
-	color: #FF6D00;
-  }
-  
-  .green {
-	background-color: #B4FDD1;
-	color: #06B16E;
-  }
-  
-  .purple {
-	background-color: #E9D4FF;
-	color: #9A48F1;
-  }
-  
-  .gray {
-	background: #94A6BE;
-	color: #FFFFFF;
-  }    

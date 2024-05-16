@@ -82,7 +82,6 @@ export const PopNewCard = () => {
                     onChange={onChange}
                   />
                 </div>
-
                 <form
                   className={classNames(
                     styles.popBrowseForm,
