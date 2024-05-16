@@ -63,7 +63,7 @@ export const PopNewCard = () => {
               &#10006;
             </Link>
             <div className={styles.popNewCardWrap}>
-              <form
+              <div
                 className={classNames(styles.popNewCardForm, styles.formNew)}
                 id="formNewCard"
                 action="#"
@@ -106,7 +106,7 @@ export const PopNewCard = () => {
                     ></textarea>
                   </div>
                 </form>
-              </form>
+              </div>
               <Calendar
                 onSelectDate={handleDateSelect}
                 selected={taskData.date}

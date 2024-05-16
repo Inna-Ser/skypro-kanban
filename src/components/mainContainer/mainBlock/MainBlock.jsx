@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useContext, useEffect, useState } from "react";
 import { statusList } from "../../../utils/cardItem";
 import { MainColumn } from "../../mainContainer/mainColumn/MainColumn";

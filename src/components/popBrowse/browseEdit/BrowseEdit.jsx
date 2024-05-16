@@ -67,38 +67,30 @@ export const BrowseEdit = () => {
             </div>
             <div className={styles.popNewCardWrap}>
               <form
-                className={classNames(styles.popNewCardForm, styles.formNew)}
-                id="formNewCard"
+                className={classNames(styles.popBrowseForm, styles.formBrowse)}
+                id="formBrowseCard"
                 action="#"
               >
-                <form
-                  className={classNames(
-                    styles.popBrowseForm,
-                    styles.formBrowse
-                  )}
-                  id="formBrowseCard"
-                  action="#"
-                >
-                  <div className={styles.formBrowseBlock}>
-                    <label htmlFor="textArea01" className={styles.subttl}>
-                      Описание задачи
-                    </label>
-                    <textarea
-                      className={styles.formBrowseArea}
-                      type="text"
-                      name="description"
-                      id="textArea01"
-                      placeholder="Введите описание задачи..."
-                      value={taskData.description}
-                      onChange={onChange}
-                    ></textarea>
-                  </div>
-                </form>
+                <div className={styles.formBrowseBlock}>
+                  <label htmlFor="textArea01" className={styles.subttl}>
+                    Описание задачи
+                  </label>
+                  <textarea
+                    className={styles.formBrowseArea}
+                    type="text"
+                    name="description"
+                    id="textArea01"
+                    placeholder="Введите описание задачи..."
+                    value={taskData.description}
+                    onChange={onChange}
+                  ></textarea>
+                </div>
               </form>
-              <Calendar selected={selected} onSelectDate={setSelected} />
+              <div className={styles.calendar}>
+                <Calendar selected={selected} onSelectDate={setSelected} />
+              </div>
             </div>
           </div>
-
           <div className={styles.popBrowseBtnBrowse}>
             <div className={styles.btnGroup}>
               <SaveButton id={id} taskData={{ ...taskData, date: selected }} />

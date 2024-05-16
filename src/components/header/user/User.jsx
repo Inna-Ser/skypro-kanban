@@ -8,20 +8,14 @@ import { UserContext } from "../../../context/AuthUserProvider";
 
 const UserSet = () => {
   const { user } = useContext(UserContext);
-  const [userDate, setUser] = useState({
-    name: user.user.name,
-    login: user.user.login,
-  });
   return (
     <>
       <div
-        className={classNames(styles.headerPopUserSet, styles.popUserSet)} //headerPopUserSet не нашла класс//
+        className={classNames(styles.headerPopUserSet, styles.popUserSet)}
         id="user-set-target"
       >
-        <p className={styles.popUserSetName}>
-          {user ? userDate.name : "Гость"}
-        </p>
-        <p className={styles.popUserSetMail}>ivan.ivanov@gmail.com</p>
+        <p className={styles.popUserSetName}>{user?.user.name}</p>
+        <p className={styles.popUserSetMail}>{user?.user.login}</p>
 
         <button
           type="button"
@@ -54,7 +48,7 @@ export const User = () => {
         className={classNames(styles.headerUser, shared.hover02)}
         onClick={toggleUserName}
       >
-        {user.name}
+        {user?.user.name}
       </button>
     </>
   );

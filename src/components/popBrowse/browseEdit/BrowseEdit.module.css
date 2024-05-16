@@ -13,7 +13,7 @@
     display: block;
     margin: 0 auto;
     background-color: #FFFFFF;
-    max-width: 630px;
+    max-width: 668px;
     width: 100%;
     padding: 40px 30px 38px;
     border-radius: 10px;
@@ -53,8 +53,8 @@
   justify-content: space-between;
 }
 .popBrowseForm .formBrowseArea {
-  max-width: 370px;
-  width: 100%;
+  width: 400px;
+  max-width: 400px;
   text-wrap: balance;
   outline: none;
   padding: 14px;
@@ -65,7 +65,7 @@
   line-height: 1;
   letter-spacing: -0.14px;
   margin-top: 14px;
-  height: 200px;
+  height: 180px;
   color: black;
 
   &::placeholder {
@@ -82,13 +82,7 @@
 .popBrowseForm {
   margin: 20px 0;
 }
-.formBrowseArea {
-  max-width: 370px;
-  margin-top: 14px;
-  height: 200px;
-}
 .formBrowse {
-
 &:area {
   max-width: 100%;
 }
@@ -162,20 +156,18 @@
   left: 0;
   z-index: 7;
 }
-
-
-
 .statusThemes {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-top: 15px;
 }
 .statusTheme {
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   color: #94A6BE;
-  padding: 11px 14px 10px;
+  padding: 7px 12px 7px;
   margin-right: 7px;
   margin-bottom: 7px;
 }
@@ -188,7 +180,6 @@
   background: #94A6BE;
   color: #FFFFFF;
 }
-
 button,
 .btn {
 cursor: pointer;
@@ -218,7 +209,6 @@ outline: none;
 .themeTop {
   display: block;
 }
-
 .orange {
   background-color: #FFE4C2;
   color: #FF6D00;
@@ -226,4 +216,6 @@ outline: none;
 .activeCategory {
   opacity: 1 !important;
 }  
-  
+.calendar {
+  padding-top: 18px;
+}
