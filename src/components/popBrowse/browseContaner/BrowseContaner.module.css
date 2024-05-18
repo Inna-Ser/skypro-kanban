@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.4);
+    position: fixed;
   }
 .popBrowseBlock {
     display: block;
@@ -78,9 +79,6 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
-  }
-  .activeCategory {
-    opacity: 1 !important;
   }
   .btnBor {
     border-radius: 4px;

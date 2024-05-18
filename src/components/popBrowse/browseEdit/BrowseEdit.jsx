@@ -13,11 +13,13 @@ import { useParams } from "react-router-dom";
 import { useContext, useState } from "react";
 import { TaskContext } from "../../../context/TaskProvider";
 import { UserContext } from "../../../context/AuthUserProvider";
+import { topicStyles } from "../../../lib/DataTopic";
 
 export const BrowseEdit = () => {
   const { id } = useParams();
   const { cards } = useContext(TaskContext);
   const card = cards.find((e) => e._id === id);
+
   const { user } = useContext(UserContext);
   const [taskData, setTaskData] = useState({
     title: card.title,
@@ -43,11 +45,11 @@ export const BrowseEdit = () => {
               <div
                 className={classNames(
                   styles.categoriesTheme,
-                  styles.orange,
+                  styles[topicStyles[card.topic]],
                   styles.activeCategory
                 )}
               >
-                <p className={styles.orange}>{card.topic}</p>
+                <p className={styles[card.topic]}>{card.topic}</p>
               </div>
             </div>{" "}
             <div className={classNames(styles.popBrowseStatus, styles.status)}>

@@ -3,7 +3,7 @@
     width: 100%;
     min-width: 630px;
     min-height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 6;
@@ -28,7 +28,7 @@
     padding: 40px 30px 48px;
     border-radius: 10px;
     border: 0.7px solid #D4DBE5;
-    position: relative;
+    position: fixed;
   }
   .popNewCardContent {
     display: block;
